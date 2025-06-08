@@ -138,6 +138,36 @@ services:
     networks:
       - ecosystem-network
 
+  # SentimentAsAService Master Data Brain
+  sentimentasaservice:
+    build:
+      context: ./sentimentasaservice
+      dockerfile: Dockerfile
+    container_name: ecosystem-sentiment
+    ports:
+      - "3005:3005"
+    environment:
+      - NODE_ENV=development
+      - PORT=3005
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_NAME=ecosystem_intelligence
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - JWT_SECRET=your-super-secret-jwt-key-change-this-in-production
+      - INTERNAL_SERVICE_KEY=your-internal-service-key-change-this
+      - ALLOWED_ORIGINS=http://localhost:3000,http://localhost:3001,http://localhost:3002,http://localhost:3003,http://localhost:3004
+    depends_on:
+      - postgres
+      - redis
+    volumes:
+      - ./sentimentasaservice:/app
+      - /app/node_modules
+    networks:
+      - ecosystem-network
+
 volumes:
   postgres_data:
   redis_data:

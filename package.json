@@ -5,12 +5,13 @@
   "main": "index.js",
   "scripts": {
     "dev": "node scripts/start-all-services.js",
-    "dev:concurrent": "concurrently \"npm run dev:gateway\" \"npm run dev:sso\" \"npm run dev:analytics\" \"npm run dev:ai\" \"npm run dev:provider\"",
+    "dev:concurrent": "concurrently \"npm run dev:gateway\" \"npm run dev:sso\" \"npm run dev:analytics\" \"npm run dev:ai\" \"npm run dev:provider\" \"npm run dev:sentiment\"",
     "dev:gateway": "cd api-gateway && npm run dev",
     "dev:sso": "cd sso-service && npm run dev",
     "dev:analytics": "cd analytics-engine && npm run dev",
     "dev:ai": "cd ai-orchestration && npm run dev",
     "dev:provider": "cd provider-dashboard && npm run dev",
+    "dev:sentiment": "cd sentimentasaservice && npm run dev",
     "start": "node api-gateway/server.js",
     "test": "jest",
     "docker:build": "docker-compose build",
@@ -19,14 +20,15 @@
     "setup:db": "node scripts/setup-database.js",
     "migrate": "node scripts/migrate.js",
     "install:all": "npm install && npm run install:services",
-    "install:services": "cd api-gateway && npm install && cd ../sso-service && npm install && cd ../analytics-engine && npm install && cd ../ai-orchestration && npm install && cd ../provider-dashboard && npm install"
+    "install:services": "cd api-gateway && npm install && cd ../sso-service && npm install && cd ../analytics-engine && npm install && cd ../ai-orchestration && npm install && cd ../provider-dashboard && npm install && cd ../sentimentasaservice && npm install"
   },
   "workspaces": [
     "api-gateway",
     "sso-service",
     "analytics-engine",
     "ai-orchestration",
-    "provider-dashboard"
+    "provider-dashboard",
+    "sentimentasaservice"
   ],
   "keywords": [
     "healthcare",
@@ -43,6 +45,9 @@
     "nodemon": "^3.0.2"
   },
   "dependencies": {
-    "dotenv": "^16.3.1"
+    "argon2": "^0.43.0",
+    "dotenv": "^16.3.1",
+    "qrcode": "^1.5.4",
+    "speakeasy": "^2.0.0"
   }
 }
