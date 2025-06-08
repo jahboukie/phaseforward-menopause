@@ -13,6 +13,7 @@ const insightsRoutes = require('./routes/insights');
 const reportsRoutes = require('./routes/reports');
 const billingRoutes = require('./routes/billing');
 const healthRoutes = require('./routes/health');
+const aiAssistantRoutes = require('./routes/ai-assistant');
 
 const app = express();
 const PORT = process.env.PROVIDER_DASHBOARD_PORT || 3004;
@@ -59,6 +60,7 @@ app.use('/practice', practiceRoutes);
 app.use('/insights', insightsRoutes);
 app.use('/reports', reportsRoutes);
 app.use('/billing', billingRoutes);
+app.use('/ai-assistant', aiAssistantRoutes);
 
 // Provider Dashboard overview endpoint
 app.get('/dashboard', (req, res) => {
@@ -72,7 +74,8 @@ app.get('/dashboard', (req, res) => {
       relationshipAnalytics: 'Analyze relationship dynamics and health correlations',
       clinicalReports: 'Generate comprehensive clinical reports',
       billingIntegration: 'Subscription and billing management',
-      complianceTools: 'HIPAA-compliant data handling and reporting'
+      complianceTools: 'HIPAA-compliant data handling and reporting',
+      aiAssistant: 'Claude AI Clinical Intelligence Assistant with tier-based access'
     },
     endpoints: {
       auth: {
@@ -112,6 +115,11 @@ app.get('/dashboard', (req, res) => {
         subscription: 'GET /billing/subscription',
         usage: 'GET /billing/usage',
         invoices: 'GET /billing/invoices'
+      },
+      aiAssistant: {
+        chat: 'POST /ai-assistant/chat',
+        stats: 'GET /ai-assistant/stats',
+        upgrade: 'POST /ai-assistant/upgrade'
       }
     },
     status: 'operational',
