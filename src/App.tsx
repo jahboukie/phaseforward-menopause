@@ -11,12 +11,14 @@ import Community from './pages/Community'
 import HealthInsights from './pages/HealthInsights'
 import Profile from './pages/Profile'
 import { AuthProvider } from './contexts/AuthContext'
+import { SubscriptionProvider } from './hooks/useSubscription'
 import { EcosystemProvider } from './hooks/useEcosystem'
 
 function App() {
   return (
     <AuthProvider>
-      <EcosystemProvider>
+      <SubscriptionProvider>
+        <EcosystemProvider>
         <Routes>
           {/* Public routes */}
           <Route path="/" element={<Landing />} />
@@ -66,7 +68,8 @@ function App() {
             </ProtectedRoute>
           } />
         </Routes>
-      </EcosystemProvider>
+        </EcosystemProvider>
+      </SubscriptionProvider>
     </AuthProvider>
   )
 }

@@ -1,9 +1,13 @@
 import React, { useState } from 'react'
 import { PlusIcon, ChartBarIcon } from '@heroicons/react/24/outline'
 import SymptomChart from '../components/SymptomChart'
+import FeatureGate, { UsageLimit } from '../components/FeatureGate'
+import { useSubscription } from '../hooks/useSubscription'
 
 export default function SymptomTracker() {
   const [showAddForm, setShowAddForm] = useState(false)
+  const [symptomCount, setSymptomCount] = useState(45) // Example current usage
+  const { tier } = useSubscription()
 
   return (
     <div className="space-y-8">
@@ -12,13 +16,15 @@ export default function SymptomTracker() {
           <h1 className="text-2xl font-bold text-gray-900">Symptom Tracker</h1>
           <p className="text-gray-600 mt-1">Monitor your menopause journey with detailed tracking</p>
         </div>
-        <button 
-          onClick={() => setShowAddForm(true)}
-          className="btn-primary flex items-center"
-        >
-          <PlusIcon className="h-4 w-4 mr-2" />
-          Log Symptoms
-        </button>
+        <UsageLimit limitType="symptoms" current={symptomCount}>
+          <button 
+            onClick={() => setShowAddForm(true)}
+            className="btn-primary flex items-center"
+          >
+            <PlusIcon className="h-4 w-4 mr-2" />
+            Log Symptoms
+          </button>
+        </UsageLimit>
       </div>
 
       <div className="card">
