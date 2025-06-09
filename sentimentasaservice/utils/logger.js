@@ -60,9 +60,8 @@ const logger = winston.createLogger({
               ...meta
             });
           }
-          return null;
-        }),
-        winston.format.filter(info => info !== null)
+          return '';
+        })
       )
     }),
 
@@ -84,9 +83,8 @@ const logger = winston.createLogger({
               ...meta
             });
           }
-          return null;
-        }),
-        winston.format.filter(info => info !== null)
+          return '';
+        })
       )
     })
   ]

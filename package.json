@@ -12,6 +12,14 @@
     "dev:ai": "cd ai-orchestration && npm run dev",
     "dev:provider": "cd provider-dashboard && npm run dev",
     "dev:sentiment": "cd sentimentasaservice && npm run dev",
+    "dev:menowellness": "cd web-apps/menowellness-web && npm run dev",
+    "dev:innerarchitect": "cd web-apps/innerarchitect-web && npm run dev",
+    "dev:soberpal": "cd web-apps/soberpal-web && npm run dev",
+    "dev:myconfidant": "cd web-apps/myconfidant-web && npm run dev",
+    "dev:fertilitytracker": "cd web-apps/fertilitytracker-web && npm run dev",
+    "dev:pregnancycompanion": "cd web-apps/pregnancycompanion-web && npm run dev",
+    "dev:postpartumsupport": "cd web-apps/postpartumsupport-web && npm run dev",
+    "dev:supportivepartner": "cd web-apps/supportivepartner-web && npm run dev",
     "start": "node api-gateway/server.js",
     "test": "jest",
     "docker:build": "docker-compose build",
@@ -20,7 +28,7 @@
     "setup:db": "node scripts/setup-database.js",
     "migrate": "node scripts/migrate.js",
     "install:all": "npm install && npm run install:services",
-    "install:services": "cd api-gateway && npm install && cd ../sso-service && npm install && cd ../analytics-engine && npm install && cd ../ai-orchestration && npm install && cd ../provider-dashboard && npm install && cd ../sentimentasaservice && npm install"
+    "install:services": "cd api-gateway && npm install && cd ../sso-service && npm install && cd ../analytics-engine && npm install && cd ../ai-orchestration && npm install && cd ../provider-dashboard && npm install && cd ../sentimentasaservice && npm install && cd ../web-apps/shared-ecosystem-client && npm install && cd ../menowellness-web && npm install && cd ../innerarchitect-web && npm install && cd ../soberpal-web && npm install && cd ../myconfidant-web && npm install && cd ../fertilitytracker-web && npm install && cd ../pregnancycompanion-web && npm install && cd ../postpartumsupport-web && npm install && cd ../supportivepartner-web && npm install"
   },
   "workspaces": [
     "api-gateway",
@@ -28,7 +36,16 @@
     "analytics-engine",
     "ai-orchestration",
     "provider-dashboard",
-    "sentimentasaservice"
+    "sentimentasaservice",
+    "web-apps/shared-ecosystem-client",
+    "web-apps/menowellness-web",
+    "web-apps/innerarchitect-web",
+    "web-apps/soberpal-web",
+    "web-apps/myconfidant-web",
+    "web-apps/fertilitytracker-web",
+    "web-apps/pregnancycompanion-web",
+    "web-apps/postpartumsupport-web",
+    "web-apps/supportivepartner-web"
   ],
   "keywords": [
     "healthcare",

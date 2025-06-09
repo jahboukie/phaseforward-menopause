@@ -47,6 +47,9 @@ app.use(providerLimiter);
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
+// Serve static files from public directory
+app.use(express.static('public'));
+
 // Health check routes (no auth required)
 app.use('/health', healthRoutes);
 
