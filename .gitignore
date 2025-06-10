@@ -95,4 +95,5 @@ public
 
 # Temporary folders
 tmp/
-temp/
+temp/.env.local
+.env.local.txt
