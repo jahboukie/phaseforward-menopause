@@ -10,9 +10,12 @@ import {
  CalendarIcon
 } from '@heroicons/react/24/outline'
 import { useEcosystem } from '../hooks/useEcosystem'
+import FeatureGate from '../components/FeatureGate'
+import { useSubscription } from '../hooks/useSubscription'
 
 export default function Dashboard() {
  const { isConnected, crossAppData, sentimentData } = useEcosystem()
+ const { tier } = useSubscription()
 
  // Mock user data for demonstration
  const userData = {

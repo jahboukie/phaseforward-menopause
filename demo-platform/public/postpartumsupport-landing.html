@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>👶 PostpartumSupport - Complete Postpartum Care & Mental Health | Dr. Alex AI</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #fef7ed 0%, #fed7aa 25%, #fb923c 50%, #ea580c 75%, #c2410c 100%);
+            color: #7c2d12;
+            min-height: 100vh;
+        }
+        
+        .demo-banner {
+            background: rgba(124, 45, 18, 0.9);
+            color: #fef7ed;
+            text-align: center;
+            padding: 12px;
+            font-weight: 600;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, #fb923c, #ea580c, #c2410c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .header .tagline {
+            font-size: 1.3rem;
+            color: #ea580c;
+            margin-bottom: 20px;
+        }
+        
+        .header .description {
+            font-size: 1.1rem;
+            color: #7c2d12;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(234, 88, 12, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(234, 88, 12, 0.3);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .feature-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #ea580c;
+            margin-bottom: 15px;
+        }
+        
+        .feature-description {
+            color: #7c2d12;
+            line-height: 1.5;
+        }
+        
+        .combinations-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+        }
+        
+        .combinations-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: #ea580c;
+            margin-bottom: 30px;
+        }
+        
+        .combination-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+        
+        .combination-card {
+            background: linear-gradient(135deg, #fef7ed, #fed7aa);
+            border-radius: 15px;
+            padding: 25px;
+            border-left: 5px solid #fb923c;
+        }
+        
+        .combination-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .combination-icons {
+            font-size: 1.5rem;
+            margin-right: 15px;
+        }
+        
+        .combination-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #ea580c;
+        }
+        
+        .combination-description {
+            color: #7c2d12;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+        
+        .combination-benefits {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .combination-benefits li {
+            color: #ea580c;
+            margin-bottom: 5px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .combination-benefits li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #059669;
+            font-weight: bold;
+        }
+        
+        .pricing-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .pricing-title {
+            font-size: 2rem;
+            color: #ea580c;
+            margin-bottom: 30px;
+        }
+        
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .pricing-card {
+            background: linear-gradient(135deg, #ffffff, #fef7ed);
+            border-radius: 15px;
+            padding: 30px;
+            border: 2px solid #fb923c;
+            position: relative;
+        }
+        
+        .pricing-card.popular {
+            border-color: #dc2626;
+            background: linear-gradient(135deg, #fef2f2, #fee2e2);
+        }
+        
+        .pricing-card.popular::before {
+            content: "MOST POPULAR";
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #dc2626;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .price-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #ea580c;
+        }
+        
+        .price-period {
+            color: #7c2d12;
+            margin-bottom: 20px;
+        }
+        
+        .price-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 25px;
+        }
+        
+        .price-features li {
+            color: #7c2d12;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .price-features li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #059669;
+            font-weight: bold;
+        }
+        
+        .cta-button {
+            background: linear-gradient(135deg, #fb923c, #ea580c);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        
+        .cta-button:hover {
+            background: linear-gradient(135deg, #ea580c, #c2410c);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(251, 146, 60, 0.4);
+        }
+        
+        .demo-section {
+            text-align: center;
+            margin: 50px 0;
+        }
+        
+        .demo-button {
+            background: linear-gradient(135deg, #059669, #047857);
+            color: white;
+            padding: 20px 40px;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 0 10px 10px 10px;
+        }
+        
+        .demo-button:hover {
+            background: linear-gradient(135deg, #047857, #065f46);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(5, 150, 105, 0.4);
+        }
+        
+        .back-button {
+            background: rgba(255, 255, 255, 0.2);
+            color: #ea580c;
+            padding: 15px 25px;
+            border: 2px solid #ea580c;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 0 10px 10px 10px;
+        }
+        
+        .back-button:hover {
+            background: #ea580c;
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .combinations-section {
+                padding: 25px;
+            }
+            
+            .demo-button, .back-button {
+                width: 100%;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-banner">
+        🎭 Demo Environment - Showcasing PostpartumSupport App Features & Integration Capabilities
+    </div>
+    
+    <div class="container">
+        <div class="header">
+            <h1>👶 PostpartumSupport</h1>
+            <div class="tagline">Comprehensive Postpartum Care & Mental Health Support</div>
+            <div class="description">
+                Complete postpartum wellness platform with mental health support, baby care guidance, family adjustment tools, and crisis prevention. 
+                Navigate the fourth trimester with confidence and professional support.
+            </div>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🧠</div>
+                <div class="feature-title">Mental Health Monitoring</div>
+                <div class="feature-description">
+                    Advanced postpartum depression and anxiety screening with AI-powered early detection and immediate intervention resources.
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">👶</div>
+                <div class="feature-title">Baby Care Guidance</div>
+                <div class="feature-description">
+                    Expert guidance for newborn care, feeding support, sleep training, and developmental milestone tracking with personalized recommendations.
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">💤</div>
+                <div class="feature-title">Recovery Tracking</div>
+                <div class="feature-description">
+                    Monitor physical recovery, track healing progress, and receive personalized care recommendations for optimal postpartum wellness.
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">👨‍👩‍👶</div>
+                <div class="feature-title">Family Adjustment</div>
+                <div class="feature-description">
+                    Support for family dynamics, relationship changes, and partner integration with tools for healthy family transition.
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🚨</div>
+                <div class="feature-title">Crisis Prevention</div>
+                <div class="feature-description">
+                    Early warning systems for mental health crises, immediate support resources, and professional intervention coordination.
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🏥</div>
+                <div class="feature-title">Provider Integration</div>
+                <div class="feature-description">
+                    Seamless communication with healthcare providers, lactation consultants, and mental health professionals for comprehensive care.
+                </div>
+            </div>
+        </div>
+        
+        <div class="combinations-section">
+            <h2 class="combinations-title">🤝 Essential App Combinations</h2>
+            
+            <div class="combination-cards">
+                <div class="combination-card">
+                    <div class="combination-header">
+                        <div class="combination-icons">🤰👶</div>
+                        <div class="combination-title">PregnancyCompanion + PostpartumSupport</div>
+                    </div>
+                    <div class="combination-description">
+                        Seamless transition from pregnancy to postpartum with continuous care coordination and family support throughout the journey.
+                    </div>
+                    <ul class="combination-benefits">
+                        <li>Continuous pregnancy to postpartum care</li>
+                        <li>Birth plan integration</li>
+                        <li>Recovery tracking from delivery</li>
+                        <li>Mental health continuity</li>
+                        <li>Partner support throughout transition</li>
+                    </ul>
+                </div>
+                
+                <div class="combination-card">
+                    <div class="combination-header">
+                        <div class="combination-icons">👶💑</div>
+                        <div class="combination-title">PostpartumSupport + SupportivePartner</div>
+                    </div>
+                    <div class="combination-description">
+                        Essential for new parent couples. Your partner learns how to support you during recovery while understanding postpartum challenges.
+                    </div>
+                    <ul class="combination-benefits">
+                        <li>Partner education about postpartum recovery</li>
+                        <li>Communication tools for new parent stress</li>
+                        <li>Shared baby care responsibilities</li>
+                        <li>Relationship maintenance during adjustment</li>
+                        <li>Crisis support for both parents</li>
+                    </ul>
+                </div>
+                
+                <div class="combination-card">
+                    <div class="combination-header">
+                        <div class="combination-icons">👶🧠</div>
+                        <div class="combination-title">PostpartumSupport + InnerArchitect</div>
+                    </div>
+                    <div class="combination-description">
+                        Enhance postpartum mental wellness with stress management, identity work, and mindfulness practices for new motherhood.
+                    </div>
+                    <ul class="combination-benefits">
+                        <li>Stress management for new mothers</li>
+                        <li>Identity transition support</li>
+                        <li>Mindfulness for postpartum anxiety</li>
+                        <li>Goal setting for new life phase</li>
+                        <li>Personal growth during motherhood</li>
+                    </ul>
+                </div>
+                
+                <div class="combination-card">
+                    <div class="combination-header">
+                        <div class="combination-icons">🌱🤰👶</div>
+                        <div class="combination-title">Complete Maternity Journey</div>
+                    </div>
+                    <div class="combination-description">
+                        Full reproductive health support from conception through postpartum with FertilityTracker → PregnancyCompanion → PostpartumSupport.
+                    </div>
+                    <ul class="combination-benefits">
+                        <li>Complete reproductive health journey</li>
+                        <li>Continuous health data and insights</li>
+                        <li>Provider continuity throughout journey</li>
+                        <li>Partner support at every stage</li>
+                        <li>Comprehensive family planning</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="pricing-section">
+            <h2 class="pricing-title">💎 Subscription Plans</h2>
+            
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <div class="price-number">$16.99</div>
+                    <div class="price-period">per month</div>
+                    <h3>Essential Support</h3>
+                    <ul class="price-features">
+                        <li>Mental health screening</li>
+                        <li>Basic baby care guidance</li>
+                        <li>Recovery tracking</li>
+                        <li>Educational resources</li>
+                        <li>Community support</li>
+                    </ul>
+                    <button class="cta-button">Start Essential Plan</button>
+                </div>
+                
+                <div class="pricing-card popular">
+                    <div class="price-number">$22.99</div>
+                    <div class="price-period">per month</div>
+                    <h3>Complete Care</h3>
+                    <ul class="price-features">
+                        <li>All Essential features</li>
+                        <li>Advanced mental health support</li>
+                        <li>SupportivePartner integration</li>
+                        <li>Provider coordination</li>
+                        <li>Crisis intervention</li>
+                        <li>24/7 support access</li>
+                    </ul>
+                    <button class="cta-button">Start Complete Plan</button>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="price-number">$34.99</div>
+                    <div class="price-period">per month</div>
+                    <h3>Family Wellness</h3>
+                    <ul class="price-features">
+                        <li>All Complete features</li>
+                        <li>InnerArchitect integration</li>
+                        <li>Professional counseling access</li>
+                        <li>Advanced family planning</li>
+                        <li>Priority provider support</li>
+                        <li>Comprehensive wellness tracking</li>
+                    </ul>
+                    <button class="cta-button">Start Family Plan</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="demo-section">
+            <button class="demo-button" onclick="window.open('/postpartumsupport-demo', '_blank')">
+                👶 Try Interactive Demo
+            </button>
+            <button class="demo-button" onclick="window.open('/provider-demo', '_blank')">
+                🏥 Provider Dashboard Demo
+            </button>
+            <button class="back-button" onclick="window.history.back()">
+                ← Back to Ecosystem Overview
+            </button>
+        </div>
+    </div>
+    
+    <script>
+        console.log('👶 PostpartumSupport Landing Page Loaded');
+        
+        // Track landing page engagement
+        const landingAnalytics = {
+            app: 'PostpartumSupport',
+            landingTime: new Date(),
+            referrer: document.referrer,
+            userAgent: navigator.userAgent
+        };
+        
+        localStorage.setItem('postpartumSupportLanding', JSON.stringify(landingAnalytics));
+        
+        // Track interactions
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('cta-button')) {
+                console.log('💰 PostpartumSupport subscription interest:', e.target.textContent);
+            } else if (e.target.classList.contains('demo-button')) {
+                console.log('🎮 PostpartumSupport demo interest:', e.target.textContent);
+            }
+        });
+    </script>
+</body>
+</html>
