@@ -1,5 +1,7 @@
-const logger = require('../utils/logger');
+const claudeAI = require('./claudeAISentimentAnalysis');
 const database = require('../utils/database');
+const logger = require('../utils/logger');
+const redis = require('../utils/redis');
 
 class CorrelationEngine {
   constructor() {

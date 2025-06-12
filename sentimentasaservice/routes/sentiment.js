@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Joi = require('joi');
-const sentimentService = require('../services/sentimentAnalysis');
+const claudeSentimentService = require('../services/claudeAISentimentAnalysis');
 const logger = require('../utils/logger');
 
 // Validation schemas
@@ -36,16 +36,28 @@ router.post('/analyze', async (req, res) => {
 
     const { text, includeEmotions, includeKeyTerms } = value;
     
-    // Perform sentiment analysis
-    const analysis = await sentimentService.analyzeSentiment(text);
+    // Perform sentiment analysis with Claude AI
+    const analysis = await claudeSentimentService.analyzeSentiment(text, {
+      includeEmotions,
+      includeKeyTerms,
+      healthcareContext: value.healthcareContext,
+      relationshipContext: value.relationshipContext
+    });
     
     const result = {
       sentiment: {
-        score: analysis.score,
-        category: analysis.category,
+        score: analysis.sentiment_score,
+        category: analysis.sentiment_category,
         confidence: analysis.confidence
       },
-      processingTime: Date.now() - startTime
+      emotions: includeEmotions ? analysis.emotions : undefined,
+      keyTerms: includeKeyTerms ? analysis.key_terms : undefined,
+      healthcareContext: analysis.healthcare_context,
+      relationshipContext: analysis.relationship_context,
+      crisisAssessment: analysis.crisis_assessment,
+      insights: analysis.insights,
+      processingTime: analysis.processingTime,
+      provider: 'claude-ai'
     };
 
     if (includeEmotions) {

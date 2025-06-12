@@ -7,6 +7,7 @@ const logger = require('./utils/logger');
 const database = require('./utils/database');
 const redis = require('./utils/redis');
 const authMiddleware = require('./middleware/auth');
+const sentimentSecurity = require('./middleware/security');
 
 const app = express();
 const PORT = process.env.PORT || 3005;
@@ -32,6 +33,9 @@ app.use(limiter);
 // Body parsing
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+
+// Serve static files for enterprise dashboard
+app.use(express.static('public'));
 
 // Request logging
 app.use((req, res, next) => {
@@ -78,14 +82,17 @@ app.get('/health/detailed', async (req, res) => {
   }
 });
 
-// API Routes
-app.use('/api/data', require('./routes/data'));
-app.use('/api/sentiment', require('./routes/sentiment'));
-app.use('/api/enterprise', authMiddleware.validateEnterprise, require('./routes/enterprise'));
-app.use('/api/research', authMiddleware.validateResearcher, require('./routes/research'));
-app.use('/api/analytics', require('./routes/analytics'));
-app.use('/api/billing', authMiddleware.validateEnterprise, require('./routes/billing'));
-app.use('/api/ml', authMiddleware.validateEnterprise, require('./routes/ml'));
+// API Routes with Military-Grade Security
+app.use('/api/data', sentimentSecurity.auditSentimentOperation('data_ingestion'), require('./routes/data'));
+app.use('/api/sentiment', sentimentSecurity.auditSentimentOperation('analysis'), require('./routes/sentiment'));
+app.use('/api/enterprise', authMiddleware.validateEnterprise, sentimentSecurity.auditSentimentOperation('enterprise'), require('./routes/enterprise'));
+app.use('/api/research', authMiddleware.validateResearcher, sentimentSecurity.authorizeResearchAccess, sentimentSecurity.auditSentimentOperation('research'), require('./routes/research'));
+app.use('/api/analytics', sentimentSecurity.auditSentimentOperation('analytics'), require('./routes/analytics'));
+app.use('/api/billing', authMiddleware.validateEnterprise, sentimentSecurity.auditSentimentOperation('billing'), require('./routes/billing'));
+app.use('/api/ml', authMiddleware.validateEnterprise, sentimentSecurity.auditSentimentOperation('ml'), require('./routes/ml'));
+
+// Clinical insights with healthcare provider authorization
+app.use('/api/clinical', authMiddleware.validateEnterprise, sentimentSecurity.authorizeClinicianAccess, sentimentSecurity.auditSentimentOperation('clinical'), require('./routes/clinical'));
 
 // Error handling middleware
 app.use((error, req, res, next) => {

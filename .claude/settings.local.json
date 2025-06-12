@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(touch:*)",
+      "Bash(cp:*)",
+      "Bash(mv:*)",
+      "Bash(npm install)",
+      "Bash(npm install:*)",
+      "Bash(npm run dev:menowellness:*)",
+      "Bash(timeout 30s npm run dev:menowellness)",
+      "Bash(timeout 15s npm run dev:menowellness)",
+      "Bash(ls:*)",
+      "Bash(npm run dev:*)",
+      "Bash(node server.js)",
+      "Bash(chmod:*)",
+      "Bash(git commit:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(rm:*)",
+      "Bash(npx create-next-app:*)",
+      "Bash(git add:*)"
+    ],
+    "deny": []
+  }
+}

@@ -1,4 +1,9 @@
-# SentimentAsAService - Master Data Brain
+# SentimentAsAService.com - Production Platform
+**Enterprise-Grade Sentiment Analysis Platform for Healthcare Ecosystems**
+
+## 🎯 Platform Overview
+
+SentimentAsAService.com is a **production-ready, enterprise-grade sentiment analysis platform** specifically designed for healthcare ecosystems. It provides real-time relationship sentiment analysis, cross-app correlation insights, and predictive analytics for clinical decision support.
 
 ## Overview
 
@@ -13,12 +18,12 @@ SentimentAsAService is the central intelligence platform for the ecosystem-intel
 - **Rate limiting** and quota management
 - **Comprehensive API documentation**
 
-### ML & Analytics Engine
-- **Custom ML model training** for sentiment analysis
-- **Cross-app correlation analysis** for unique insights
-- **Federated learning** across app ecosystems
-- **Predictive health outcome modeling**
-- **Real-time monitoring** and alerting
+### AI & Analytics Engine - Powered by Claude AI
+- **Claude AI sentiment analysis** with healthcare specialization
+- **Cross-app correlation analysis** powered by Claude's reasoning
+- **Clinical insights generation** via Claude's medical knowledge
+- **Predictive health outcome modeling** through Claude AI
+- **Real-time crisis detection** with Claude's safety protocols
 
 ### Research Data Platform
 - **Big Pharma licensing** dashboard
@@ -35,10 +40,10 @@ SentimentAsAService is the central intelligence platform for the ecosystem-intel
 ## 📊 Business Value
 
 ### Revenue Streams
-1. **Enterprise API Access**: $299-$1,499/month
-2. **Research Dataset Licensing**: $0.10/record + custom contracts
-3. **ML Model Training**: $0.20/data point
-4. **Consulting Services**: $300/hour
+1. **Enterprise API Access**: $2,990-$24,990/month  
+2. **Research Dataset Licensing**: $1.50/record + custom contracts
+3. **Clinical ML Model Training**: $2.50/data point
+4. **Healthcare Consulting**: $750/hour
 
 ### Unique Market Position
 - **Cross-app correlation data** impossible to obtain elsewhere
@@ -64,8 +69,8 @@ Port 3005 - SentimentAsAService Master Data Brain
 - **Node.js 18+** with Express.js framework
 - **PostgreSQL 15** with enterprise-grade schemas
 - **Redis 7** for caching and real-time features
-- **Natural Language Processing** with healthcare context
-- **TensorFlow** for ML model training
+- **Claude AI (Anthropic)** - EXCLUSIVE AI provider for all intelligence
+- **Natural Language Processing** via Claude's advanced capabilities
 - **Docker** containerization
 
 ## 🔧 Installation & Setup
@@ -194,11 +199,11 @@ Headers: { "Authorization": "Bearer researcher_token" }
 
 ### API Tiers
 
-| Tier | Monthly Quota | Rate Limit | Cost/Data Point | Features |
-|------|---------------|------------|----------------|----------|
-| **Standard** | 10,000 | 100/min | $0.05 | Basic sentiment analysis |
-| **Premium** | 100,000 | 500/min | $0.01 | ML training, correlations |
-| **Enterprise** | 1,000,000 | 2,000/min | $0.005 | Full platform, federated learning |
+| Tier | Monthly Quota | Rate Limit | Monthly Cost | Features |
+|------|---------------|------------|-------------|----------|
+| **Professional** | 50,000 | 500/min | $2,990 | Advanced sentiment + crisis detection |
+| **Enterprise** | 500,000 | 2,000/min | $8,990 | Clinical insights + correlation analytics |
+| **Research Partner** | Unlimited | 5,000/min | $24,990 | Full platform + pharmaceutical licensing |
 
 ### Usage Tracking
 - Real-time usage monitoring
