@@ -1,11 +1,10 @@
-import React from 'react'
 import { 
   FaceSmileIcon, 
   FaceFrownIcon, 
   ChartBarIcon,
   SparklesIcon 
 } from '@heroicons/react/24/outline'
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, AreaChart, Area } from 'recharts'
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 
 interface SentimentInsightsProps {
   sentimentData: any
@@ -13,7 +12,7 @@ interface SentimentInsightsProps {
   ecosystemInsights: any
 }
 
-export default function SentimentInsights({ sentimentData, loading, ecosystemInsights }: SentimentInsightsProps) {
+export default function SentimentInsights({ loading }: { loading: boolean }) {
   // Mock sentiment trend data for demonstration
   const sentimentTrend = [
     { date: '2024-01-01', sentiment: 0.65, mood: 'Good', symptoms: 2 },
@@ -26,7 +25,6 @@ export default function SentimentInsights({ sentimentData, loading, ecosystemIns
   ]
 
   const avgSentiment = sentimentTrend.reduce((sum, day) => sum + day.sentiment, 0) / sentimentTrend.length
-  const sentimentCategory = avgSentiment > 0.6 ? 'positive' : avgSentiment > 0.4 ? 'neutral' : 'challenging'
 
   const getSentimentColor = (sentiment: number) => {
     if (sentiment > 0.6) return 'text-wellness-600'

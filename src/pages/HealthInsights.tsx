@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { LightBulbIcon, ChartBarIcon, CalendarIcon } from '@heroicons/react/24/outline'
 import SentimentInsights from '../components/SentimentInsights'
 import FeatureGate from '../components/FeatureGate'
@@ -32,7 +32,7 @@ export default function HealthInsights() {
         </FeatureGate>
       </div>
 
-      <SentimentInsights sentimentData={null} loading={false} ecosystemInsights={null} />
+      <SentimentInsights loading={false} />
       
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div className="card">

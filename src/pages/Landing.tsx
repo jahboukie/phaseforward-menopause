@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { 
   HeartIcon,
-  CalendarIcon,
   ChartBarIcon,
   UserGroupIcon,
   ShieldCheckIcon,
@@ -17,7 +16,6 @@ import { Link } from 'react-router-dom'
 
 export default function Landing() {
   const [activeFeature, setActiveFeature] = useState(0)
-  const [email, setEmail] = useState('')
 
   const features = [
     {
@@ -126,13 +124,6 @@ export default function Landing() {
     }
   ]
 
-  const handleEmailSignup = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Handle email signup
-    console.log('Email signup:', email)
-    setEmail('')
-    alert('Thank you! We\'ll keep you updated on your menopause wellness journey.')
-  }
 
   return (
     <div className="min-h-screen bg-white">

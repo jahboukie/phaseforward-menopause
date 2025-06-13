@@ -1,4 +1,3 @@
-import React from 'react'
 import { 
  FireIcon, 
  HeartIcon, 
@@ -6,8 +5,7 @@ import {
  UserGroupIcon,
  ArrowTrendingUpIcon,
  ExclamationTriangleIcon,
- SparklesIcon,
- CalendarIcon
+ SparklesIcon
 } from '@heroicons/react/24/outline'
 import { useEcosystem } from '../hooks/useEcosystem'
 import FeatureGate from '../components/FeatureGate'

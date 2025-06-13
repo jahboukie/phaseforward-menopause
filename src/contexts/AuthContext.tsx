@@ -72,7 +72,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   const createUserProfile = async (user: User) => {
     try {
-      const { data, error } = await supabase
+      const { error } = await supabase
         .from('user_profiles')
         .select('id')
         .eq('id', user.id)

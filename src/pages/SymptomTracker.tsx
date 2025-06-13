@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { PlusIcon, ChartBarIcon } from '@heroicons/react/24/outline'
 import SymptomChart from '../components/SymptomChart'
 import FeatureGate, { UsageLimit } from '../components/FeatureGate'
