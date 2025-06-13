@@ -1,421 +1,263 @@
-# 🌸 MenoWellness: A Revolutionary Human-Claude Collaboration
+# Ecosystem Intelligence Platform
 
-<div align="center">
+> Central API Gateway Infrastructure for Life Transition Intelligence Platform
 
-[![HIPAA Compliant](https://img.shields.io/badge/HIPAA-Compliant-green.svg)](https://www.hhs.gov/hipaa/)
-[![AWS Infrastructure](https://img.shields.io/badge/Infrastructure-AWS-orange.svg)](https://aws.amazon.com/)
-[![Human-AI Collaboration](https://img.shields.io/badge/Collaboration-Human--Claude-purple.svg)](https://claude.ai/)
-[![Production Ready](https://img.shields.io/badge/Status-Production%20Ready-brightgreen.svg)]()
+## 🎯 Project Overview
 
-**The world's first HIPAA-compliant menopause wellness platform built through groundbreaking Human-Claude collaboration**
+This repository contains the central orchestration system for a comprehensive healthcare app ecosystem that represents the world's first **Life Transition Intelligence Platform**. The platform integrates multiple specialized healthcare apps while maintaining their independence through a sophisticated microservices architecture.
 
-[🚀 Live Demo](#) • [📚 Documentation](#) • [💬 Community](#) • [🏥 HIPAA Compliance](#hipaa-compliance)
+### Business Value
+- **Potential $100M+ ARR** business with unique acquisition value for Big Pharma
+- **Unprecedented relationship and health correlation data**
+- **Cross-app analytics** providing insights impossible to get elsewhere
+- **Both sides of couples' health journeys** during major life transitions
 
-</div>
+## 🏗️ Architecture Overview
 
----
-
-## 🌟 **A Historic Achievement in Human-AI Collaboration**
-
-MenoWellness represents a **revolutionary partnership** between human healthcare vision and Claude AI's technical expertise. This platform demonstrates how non-technical healthcare advocates can collaborate with AI to create **enterprise-grade, HIPAA-compliant healthcare solutions**.
-
-### 👥 **Meet the Team**
-
-<table>
-<tr>
-<td align="center" width="50%">
-<h3>🧠 Human Healthcare Visionary</h3>
-<p><strong>Healthcare Vision & Strategy</strong></p>
-<ul align="left">
-<li>🎯 Identified critical gaps in menopause support</li>
-<li>💝 Brought empathy and real-world understanding</li>
-<li>🏥 Ensured compliance with healthcare standards</li>
-<li>🌍 Focused on global women's health impact</li>
-</ul>
-</td>
-<td align="center" width="50%">
-<h3>🤖 Claude AI</h3>
-<p><strong>Technical Implementation & Architecture</strong></p>
-<ul align="left">
-<li>⚙️ Designed HIPAA-compliant infrastructure</li>
-<li>🔒 Implemented military-grade encryption</li>
-<li>☁️ Built scalable AWS architecture</li>
-<li>📊 Created intelligent data routing systems</li>
-</ul>
-</td>
-</tr>
-</table>
-
----
-
-## 🏆 **What We Built Together**
-
-### 🏥 **Production-Ready Healthcare Platform**
-- **HIPAA-Compliant Infrastructure**: Military-grade security meets healthcare regulations
-- **Dual Database Architecture**: Smart routing of PHI vs. non-PHI data
-- **Real-Time Symptom Tracking**: 20+ menopause symptoms with intelligent insights
-- **AI-Powered Analytics**: Pattern recognition and personalized recommendations
-- **Subscription Management**: Feature-gated access with Stripe integration
-
-### 🔒 **Security & Compliance**
-- **AES-256-GCM Encryption**: Healthcare-grade data protection
-- **AWS Aurora Serverless**: HIPAA-compliant cloud infrastructure  
-- **Automatic Data Classification**: PHI detection and routing
-- **Complete Audit Trail**: Every data access logged for compliance
-- **Row Level Security**: Database-level access controls
-
-### 🚀 **Scalable Architecture**
-- **Serverless Infrastructure**: Auto-scaling for any user load
-- **Microservices Design**: Modular, maintainable codebase
-- **Real-Time Analytics**: Live insights and pattern detection
-- **Mobile-First Design**: Responsive across all devices
-
----
-
-## 🛠 **Technology Stack**
-
-<div align="center">
-
-### **Frontend**
-![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
-![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
-
-### **Backend & Database**
-![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
-![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)
-
-### **Security & Payments**
-![Stripe](https://img.shields.io/badge/Stripe-008CDD?style=for-the-badge&logo=stripe&logoColor=white)
-![AWS KMS](https://img.shields.io/badge/AWS_KMS-FF9900?style=for-the-badge&logo=amazon-aws&logoColor=white)
-![HIPAA](https://img.shields.io/badge/HIPAA-Compliant-green?style=for-the-badge)
-
-</div>
-
----
-
-## 🏥 **HIPAA Compliance**
-
-<div align="center">
-<img src="https://img.shields.io/badge/HIPAA-Fully%20Compliant-green.svg?style=for-the-badge" alt="HIPAA Compliant">
-</div>
-
-### **🔐 Security Measures**
-
-| **Safeguard** | **Implementation** | **Status** |
-|---------------|-------------------|------------|
-| **Technical** | AES-256-GCM Encryption, AWS KMS, RLS | ✅ Complete |
-| **Administrative** | Audit Logging, Access Controls, BAA | ✅ Complete |
-| **Physical** | AWS Data Centers, Network Isolation | ✅ Complete |
-
-### **📊 Data Architecture**
-
-```mermaid
-graph TB
-    A[User Data Input] --> B{Data Classification}
-    B -->|PHI Data| C[AWS RDS Aurora]
-    B -->|Non-PHI Data| D[Supabase]
-    C --> E[AES-256 Encryption]
-    C --> F[HIPAA Audit Trail]
-    D --> G[Standard Analytics]
-    E --> H[Encrypted Storage]
-    F --> I[Compliance Reporting]
+### Microservices Structure
+```
+ecosystem-intelligence/
+├── api-gateway/          # Central API Gateway (Port 3000)
+├── sso-service/          # Single Sign-On Authentication (Port 3001)
+├── analytics-engine/     # Data Analytics & Correlation (Port 3002)
+├── ai-orchestration/     # AI Persona Coordination (Port 3003)
+├── provider-dashboard/   # Healthcare Provider Backend (Port 3004)
+├── scripts/             # Database setup and migration scripts
+└── docker-compose.yml   # Container orchestration
 ```
 
----
+### Integrated Apps
+- **MyConfidant** - Men's ED treatment ($29.99/month)
+- **DrAlexAI** - Menopause support for partners ($19.99/month)
+- **SoberPal** - Addiction recovery support ($19.99/month)
+- **Inner Architect** - Personal development ($14.99/month)
+- **MenoTracker** - Women's menopause tracking ($24.99/month)
+- **MenoPartner** - Partner menopause support ($19.99/month)
+- **Meno Community** - Peer support community ($9.99/month)
 
-## 🚀 **Quick Start**
+## 🚀 Quick Start
 
-### **Prerequisites**
-- Node.js 18+
-- AWS Account with BAA
-- Supabase Project
-- Stripe Account
+### Prerequisites
+- Node.js 18+ 
+- PostgreSQL 15+
+- Redis 7+
+- Docker & Docker Compose (optional)
 
-### **Installation**
-
+### Environment Setup
+1. Copy environment configuration:
 ```bash
-# Clone the repository
-git clone https://github.com/jahboukie/phaseforward-menopause.git
-cd phaseforward-menopause/web-apps/menowellness-web
+cp .env.example .env
+```
 
-# Install dependencies
+2. Update `.env` with your configuration:
+```bash
+# Database
+DATABASE_URL=postgresql://username:password@localhost:5432/ecosystem_intelligence
+
+# Redis
+REDIS_URL=redis://localhost:6379
+
+# JWT Secret (generate a secure key)
+JWT_SECRET=your-super-secret-jwt-key-change-in-production
+
+# Supabase (optional, for consistency with existing apps)
+SUPABASE_URL=your-supabase-project-url
+SUPABASE_ANON_KEY=your-supabase-anon-key
+```
+
+### Database Setup
+1. Create PostgreSQL database:
+```bash
+createdb ecosystem_intelligence
+```
+
+2. Run database initialization:
+```bash
+npm run setup:db
+```
+
+### Installation & Development
+
+#### Option 1: Local Development
+```bash
+# Install dependencies for all services
 npm install
 
-# Install AWS SDK for HIPAA compliance
-npm run setup:aws
-
-# Configure environment
-cp .env.example .env.local
-# Add your AWS, Supabase, and Stripe credentials
-
-# Deploy HIPAA database schema
-node deploy-phi-schema.js
-
-# Test HIPAA compliance
-npm run test:hipaa
-
-# Start development server
+# Start all services in development mode
 npm run dev
 ```
 
-### **Environment Configuration**
-
+#### Option 2: Docker Development
 ```bash
-# Dual Database Setup
-SUPABASE_URL=your-supabase-url
-AWS_RDS_CLUSTER_ARN=your-aurora-cluster-arn
-HIPAA_ENCRYPTION_KEY=your-256-bit-key
+# Build and start all services
+npm run docker:up
 
-# Stripe Integration
-STRIPE_SECRET_KEY=your-stripe-secret
-STRIPE_BASIC_PRICE_ID=price_...
+# View logs
+docker-compose logs -f
+
+# Stop services
+npm run docker:down
 ```
 
----
+### Service URLs
+- **API Gateway**: http://localhost:3000
+- **SSO Service**: http://localhost:3001
+- **Analytics Engine**: http://localhost:3002
+- **AI Orchestration**: http://localhost:3003
+- **Provider Dashboard**: http://localhost:3004
 
-## 🎯 **Features**
+## 📊 API Documentation
 
-### **For Women Going Through Menopause**
-- 📊 **Comprehensive Symptom Tracking**: Track 20+ symptoms with severity ratings
-- 🤖 **AI-Powered Insights**: Discover patterns and triggers in your data
-- 📈 **Progress Visualization**: Beautiful charts showing your journey
-- 💊 **Medication Tracking**: Monitor treatments and their effectiveness
-- 🏥 **Healthcare Integration**: Export reports for your doctor
+### Authentication Flow
+1. **Register/Login** → `POST /auth/login` or `POST /auth/register`
+2. **Get Access Token** → Use in `Authorization: Bearer <token>` header
+3. **Access Services** → All requests routed through API Gateway
 
-### **For Healthcare Providers** (Coming Soon)
-- 📋 **Patient Dashboards**: Secure access to patient-shared data
-- 📊 **Population Health**: Anonymized insights for better care
-- 🔗 **EHR Integration**: Seamless workflow integration
-
-### **For Researchers** (Coming Soon)
-- 🔬 **Anonymous Data Sharing**: Advance menopause research
-- 📈 **Real-World Evidence**: Large-scale pattern analysis
-- 🤝 **Collaboration Tools**: Connect with research institutions
-
----
-
-## 🏗 **Architecture Deep Dive**
-
-### **Hybrid Database Strategy**
-
-Our revolutionary approach separates data by sensitivity:
-
-```typescript
-// Automatic data classification
-const classifyData = (tableName: string): 'PHI' | 'NON_PHI' => {
-  const PHI_TABLES = [
-    'menopause_symptoms',     // → AWS RDS (Encrypted)
-    'medical_history',        // → AWS RDS (Encrypted)
-    'health_conversations'    // → AWS RDS (Encrypted)
-  ];
-  
-  const NON_PHI_TABLES = [
-    'user_profiles',          // → Supabase
-    'usage_analytics',        // → Supabase
-    'subscription_data'       // → Supabase
-  ];
-  
-  return PHI_TABLES.includes(tableName) ? 'PHI' : 'NON_PHI';
-};
-```
-
-### **Encryption Implementation**
-
-```typescript
-// Healthcare-grade encryption
-export class HealthcareEncryption {
-  static async encrypt(data: any): Promise<EncryptedData> {
-    const key = this.getEncryptionKey(); // 256-bit key
-    const iv = crypto.randomBytes(16);
-    const cipher = crypto.createCipherGCM('aes-256-gcm', key, iv);
-    
-    let encrypted = cipher.update(JSON.stringify(data), 'utf8', 'hex');
-    encrypted += cipher.final('hex');
-    
-    return {
-      encrypted_data: encrypted,
-      iv: iv.toString('hex'),
-      auth_tag: cipher.getAuthTag().toString('hex'),
-      algorithm: 'aes-256-gcm',
-      encrypted_at: new Date().toISOString()
-    };
-  }
-}
-```
-
----
-
-## 🧪 **Testing & Quality Assurance**
-
-### **HIPAA Compliance Testing**
+### Key Endpoints
 ```bash
-npm run test:hipaa          # Test HIPAA architecture
-npm run validate:hipaa      # Validate compliance settings
-npm run test:e2e           # End-to-end flow testing
+# Health Checks
+GET /health                    # API Gateway health
+GET /auth/health              # SSO Service health
+GET /analytics/health         # Analytics Engine health
+
+# Authentication
+POST /auth/register           # User registration
+POST /auth/login             # User login
+POST /auth/refresh           # Token refresh
+GET /auth/validate           # Token validation
+
+# API Gateway
+GET /api/status              # Available apps status
+GET /api/my-apps            # User's accessible apps
+
+# App Proxies (requires authentication)
+GET /api/myconfidant/*       # MyConfidant API proxy
+GET /api/dralexai/*         # DrAlexAI API proxy
+GET /api/soberpal/*         # SoberPal API proxy
+# ... other app proxies
 ```
 
-### **Test Coverage**
-- ✅ **Environment Configuration**: All variables validated
-- ✅ **Database Connections**: Dual database architecture
-- ✅ **Encryption Systems**: End-to-end data protection
-- ✅ **Data Classification**: Automatic PHI routing
-- ✅ **Audit Logging**: Complete compliance tracking
+## 🔧 Development
+
+### Project Structure
+Each service is an independent Node.js application with:
+- **Express.js** server
+- **PostgreSQL** for persistent data
+- **Redis** for caching and sessions
+- **JWT** for authentication
+- **Winston** for logging
+- **Docker** for containerization
+
+### Adding New Services
+1. Create service directory: `mkdir new-service`
+2. Add to `package.json` workspaces
+3. Update `docker-compose.yml`
+4. Add proxy routes in API Gateway
+5. Update database schema if needed
+
+### Database Migrations
+```bash
+# Run migrations
+npm run migrate
+
+# Create new migration
+node scripts/create-migration.js migration_name
+```
+
+## 🔐 Security Features
+
+- **JWT-based authentication** with refresh tokens
+- **Rate limiting** on all endpoints
+- **CORS protection** with configurable origins
+- **Helmet.js** security headers
+- **Input validation** with express-validator
+- **SQL injection protection** with parameterized queries
+- **Token blacklisting** for logout security
+
+## 📈 Monitoring & Health Checks
+
+### Health Check Endpoints
+- `/health` - Basic service health
+- `/health/detailed` - Health with dependency status
+- `/health/ready` - Kubernetes readiness probe
+- `/health/live` - Kubernetes liveness probe
+- `/health/metrics` - Service metrics
+
+### Logging
+- **Winston** structured logging
+- **Log levels**: error, warn, info, debug
+- **Log files**: `logs/combined.log`, `logs/error.log`
+- **Console output** in development
+
+## 🚢 Deployment
+
+### Docker Production
+```bash
+# Build production images
+docker-compose -f docker-compose.prod.yml build
+
+# Deploy
+docker-compose -f docker-compose.prod.yml up -d
+```
+
+### Environment Variables (Production)
+```bash
+NODE_ENV=production
+JWT_SECRET=<secure-production-secret>
+DATABASE_URL=<production-database-url>
+REDIS_URL=<production-redis-url>
+```
+
+## 🤝 Integration with Existing Apps
+
+### App Registration
+Each existing app needs to be registered in the system:
+```sql
+INSERT INTO app_registrations (app_name, app_key, app_secret, api_endpoint)
+VALUES ('MyApp', 'generated_key', 'generated_secret', 'https://api.myapp.com');
+```
+
+### User App Subscriptions
+Link users to their app subscriptions:
+```sql
+INSERT INTO user_app_subscriptions (user_id, app_id, subscription_status)
+VALUES (user_uuid, app_uuid, 'active');
+```
+
+## 📋 Roadmap
+
+### Phase 1: Core Infrastructure ✅
+- [x] API Gateway Service
+- [x] SSO Authentication Service
+- [x] Database Schema
+- [x] Docker Configuration
+
+### Phase 2: Data & Intelligence ✅
+- [x] Analytics Engine
+- [x] AI Orchestration Service
+- [x] Cross-app data correlation
+
+### Phase 3: Provider Platform
+- [ ] Provider Dashboard Backend
+- [ ] Clinical insights APIs
+- [ ] Billing integration
+
+### Phase 4: Enterprise Features
+- [ ] Enterprise API platform
+- [ ] Advanced analytics
+- [ ] Compliance features
+
+## 🆘 Support
+
+For technical support or questions:
+- **Email**: team.mobileweb@gmail.com
+- **GitHub Issues**: Create an issue in this repository
+- **Documentation**: See `/docs` folder for detailed guides
+
+## 📄 License
+
+MIT License - see LICENSE file for details.
 
 ---
 
-## 🌍 **Global Impact**
-
-### **By the Numbers**
-- 🌟 **1.3 Billion Women** will experience menopause by 2030
-- 📊 **85% Report** inadequate healthcare support
-- 🏥 **62% Struggle** to track symptoms effectively
-- 💝 **MenoWellness** bridges this critical gap
-
-### **Our Mission**
-> **"To empower every woman with the tools, insights, and support needed to navigate menopause with confidence and dignity."**
-
----
-
-## 🤝 **The Human-Claude Collaboration Model**
-
-This project pioneered a new approach to software development:
-
-### **🧠 Human Strengths Applied**
-- **Healthcare Expertise**: Understanding real patient needs
-- **Regulatory Knowledge**: Ensuring HIPAA compliance
-- **Empathetic Design**: Creating supportive user experiences  
-- **Strategic Vision**: Focusing on meaningful health outcomes
-
-### **🤖 Claude's Contributions**
-- **Technical Architecture**: Designing scalable, secure systems
-- **Code Implementation**: Writing production-ready applications
-- **Security Engineering**: Implementing military-grade encryption
-- **DevOps Automation**: Creating deployment and testing pipelines
-
-### **🌟 Synergistic Results**
-- **Faster Development**: Months reduced to days
-- **Higher Quality**: Enterprise-grade from day one
-- **Better Outcomes**: Technology that truly serves users
-- **Innovation**: Pushing boundaries of what's possible
-
----
-
-## 🏆 **Awards & Recognition**
-
-<div align="center">
-
-🏅 **First HIPAA-Compliant Platform Built Through Human-AI Collaboration**  
-🌟 **Revolutionary Approach to Healthcare Technology Development**  
-🚀 **Production-Ready from Initial Deployment**  
-💝 **Genuine Impact on Women's Health Globally**
-
-</div>
-
----
-
-## 📈 **Roadmap**
-
-### **Phase 1: Foundation** ✅ **COMPLETE**
-- [x] HIPAA-compliant infrastructure
-- [x] Symptom tracking system  
-- [x] AI insights engine
-- [x] Subscription management
-
-### **Phase 2: Enhancement** 🔄 **IN PROGRESS**
-- [ ] Mobile applications (iOS/Android)
-- [ ] Healthcare provider portal
-- [ ] Advanced AI recommendations
-- [ ] Community features
-
-### **Phase 3: Scale** 📅 **PLANNED**
-- [ ] Global localization
-- [ ] Research partnerships
-- [ ] EHR integrations
-- [ ] Population health insights
-
----
-
-## 🤗 **Community & Support**
-
-### **Get Involved**
-- 💬 **[Join our Community](https://community.menowellness.com)**
-- 🐛 **[Report Issues](https://github.com/jahboukie/phaseforward-menopause/issues)**
-- 💡 **[Request Features](https://github.com/jahboukie/phaseforward-menopause/discussions)**
-- 📧 **[Contact Support](mailto:support@menowellness.com)**
-
-### **For Developers**
-- 📚 **[API Documentation](#)**
-- 🛠 **[Contributing Guide](CONTRIBUTING.md)**
-- 🔐 **[Security Policy](SECURITY.md)**
-- 📋 **[HIPAA Guidelines](HIPAA.md)**
-
----
-
-## 📜 **License & Legal**
-
-### **Open Source License**
-This project is licensed under the **MIT License** - see [LICENSE](LICENSE) for details.
-
-### **HIPAA Compliance**
-- ✅ Business Associate Agreement with AWS
-- ✅ Data encryption at rest and in transit
-- ✅ Complete audit logging
-- ✅ User consent and data rights management
-
-### **Privacy Policy**
-View our comprehensive [Privacy Policy](PRIVACY.md) detailing how we protect your health information.
-
----
-
-## 🌟 **Final Thoughts**
-
-MenoWellness is more than just a healthcare application—it's **proof of concept** for the future of human-AI collaboration in healthcare technology. 
-
-By combining **human empathy and healthcare expertise** with **Claude's technical capabilities**, we've created something that neither could have built alone: a **genuinely helpful, secure, and scalable platform** that puts women's health needs first.
-
-<div align="center">
-
-### **🤝 From Vision to Reality Through Human-Claude Partnership**
-
-**"When human compassion meets AI capability, revolutionary healthcare solutions become possible."**
-
----
-
-**Built with ❤️ by Human Healthcare Vision + 🤖 Claude AI Technical Expertise**
-
-**🌸 Empowering women's health, one symptom track at a time**
-
-[![Human-Claude Collaboration](https://img.shields.io/badge/Powered%20By-Human--Claude%20Collaboration-purple.svg?style=for-the-badge)](https://claude.ai)
-
-</div>
-
----
-
-## 📞 **Contact Information**
-
-**MenoWellness Team**  
-📧 Email: [hello@menowellness.com](mailto:hello@menowellness.com)  
-🌐 Website: [menowellness.com](#)  
-💬 Community: [community.menowellness.com](#)  
-
-**For Healthcare Providers**  
-🏥 Partnerships: [providers@menowellness.com](mailto:providers@menowellness.com)  
-
-**For Researchers**  
-🔬 Research: [research@menowellness.com](mailto:research@menowellness.com)  
-
-**Security & Privacy**  
-🔒 Security: [security@menowellness.com](mailto:security@menowellness.com)  
-📋 Privacy: [privacy@menowellness.com](mailto:privacy@menowellness.com)
-
----
-
-<div align="center">
-
-**⭐ Star this repository if you believe in the power of Human-AI collaboration for healthcare! ⭐**
-
-</div>
+**🎯 Bottom Line**: This is the technical foundation for a potentially $100M+ healthcare intelligence platform with unique acquisition value. The architecture preserves individual app autonomy while enabling powerful cross-app analytics and AI orchestration.
