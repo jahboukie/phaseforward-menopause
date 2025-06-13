@@ -5,7 +5,6 @@ import FeatureGate from '../components/FeatureGate'
 import { useSubscription } from '../hooks/useSubscription'
 
 export default function TreatmentPlanner() {
-  const { tier } = useSubscription()
 
   return (
     <div className="space-y-8">

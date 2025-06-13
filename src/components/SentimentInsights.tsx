@@ -6,11 +6,6 @@ import {
 } from '@heroicons/react/24/outline'
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 
-interface SentimentInsightsProps {
-  sentimentData: any
-  loading: boolean
-  ecosystemInsights: any
-}
 
 export default function SentimentInsights({ loading }: { loading: boolean }) {
   // Mock sentiment trend data for demonstration

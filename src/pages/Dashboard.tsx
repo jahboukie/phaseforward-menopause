@@ -12,8 +12,7 @@ import FeatureGate from '../components/FeatureGate'
 import { useSubscription } from '../hooks/useSubscription'
 
 export default function Dashboard() {
- const { isConnected, crossAppData, sentimentData } = useEcosystem()
- const { tier } = useSubscription()
+ const { isConnected, crossAppData } = useEcosystem()
 
  // Mock user data for demonstration
  const userData = {

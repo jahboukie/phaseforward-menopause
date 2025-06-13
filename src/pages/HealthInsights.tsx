@@ -5,7 +5,6 @@ import FeatureGate from '../components/FeatureGate'
 import { useSubscription } from '../hooks/useSubscription'
 
 export default function HealthInsights() {
-  const { tier } = useSubscription()
   const [timeRange, setTimeRange] = useState('30d')
 
   return (

@@ -7,7 +7,6 @@ import { useSubscription } from '../hooks/useSubscription'
 export default function SymptomTracker() {
   const [showAddForm, setShowAddForm] = useState(false)
   const [symptomCount, setSymptomCount] = useState(45) // Example current usage
-  const { tier } = useSubscription()
 
   return (
     <div className="space-y-8">
