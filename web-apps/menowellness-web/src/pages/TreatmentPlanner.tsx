@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { HeartIcon, PlusIcon, StarIcon } from '@heroicons/react/24/outline'
 import TreatmentProgress from '../components/TreatmentProgress'
 import FeatureGate from '../components/FeatureGate'
 import { useSubscription } from '../hooks/useSubscription'
 
 export default function TreatmentPlanner() {
-  const { tier } = useSubscription()
-  const [selectedTreatment, setSelectedTreatment] = useState(null)
+  const { } = useSubscription()
+  const [, ] = useState(null)
 
   return (
     <div className="space-y-8">

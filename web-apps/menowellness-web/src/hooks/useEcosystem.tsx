@@ -11,8 +11,8 @@ const EcosystemContext = createContext<EcosystemContextType | undefined>(undefin
 
 export function EcosystemProvider({ children }: { children: React.ReactNode }) {
   const [isConnected, setIsConnected] = React.useState(false)
-  const [crossAppData, setCrossAppData] = React.useState(null)
-  const [sentimentData, setSentimentData] = React.useState(null)
+  const [crossAppData, setCrossAppData] = React.useState<any>(null)
+  const [sentimentData, setSentimentData] = React.useState<any>(null)
 
   const connectToEcosystem = async () => {
     try {

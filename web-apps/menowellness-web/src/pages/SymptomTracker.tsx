@@ -1,13 +1,13 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { PlusIcon, ChartBarIcon } from '@heroicons/react/24/outline'
 import SymptomChart from '../components/SymptomChart'
-import FeatureGate, { UsageLimit } from '../components/FeatureGate'
+import { UsageLimit } from '../components/FeatureGate'
 import { useSubscription } from '../hooks/useSubscription'
 
 export default function SymptomTracker() {
-  const [showAddForm, setShowAddForm] = useState(false)
-  const [symptomCount, setSymptomCount] = useState(45) // Example current usage
-  const { tier } = useSubscription()
+  const [, setShowAddForm] = useState(false)
+  const [symptomCount] = useState(45) // Example current usage
+  const { } = useSubscription()
 
   return (
     <div className="space-y-8">

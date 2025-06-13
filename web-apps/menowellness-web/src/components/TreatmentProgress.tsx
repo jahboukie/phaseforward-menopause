@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { CheckCircleIcon, ClockIcon, ExclamationCircleIcon } from '@heroicons/react/24/outline'
 
 const treatments = [

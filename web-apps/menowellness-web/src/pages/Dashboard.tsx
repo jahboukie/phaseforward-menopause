@@ -1,21 +1,18 @@
-import React from 'react'
-import { 
- FireIcon, 
- HeartIcon, 
- ChartBarIcon, 
+import {
+ FireIcon,
+ HeartIcon,
+ ChartBarIcon,
  UserGroupIcon,
  ArrowTrendingUpIcon,
  ExclamationTriangleIcon,
- SparklesIcon,
- CalendarIcon
+ SparklesIcon
 } from '@heroicons/react/24/outline'
 import { useEcosystem } from '../hooks/useEcosystem'
-import FeatureGate from '../components/FeatureGate'
 import { useSubscription } from '../hooks/useSubscription'
 
 export default function Dashboard() {
- const { isConnected, crossAppData, sentimentData } = useEcosystem()
- const { tier } = useSubscription()
+ const { isConnected, crossAppData } = useEcosystem()
+ const { } = useSubscription()
 
  // Mock user data for demonstration
  const userData = {

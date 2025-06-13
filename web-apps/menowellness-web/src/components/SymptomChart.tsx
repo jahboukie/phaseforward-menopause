@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar } from 'recharts'
 
 const symptomData = [
@@ -43,7 +43,7 @@ export default function SymptomChart() {
   const getSymptomFrequency = () => {
     return symptoms.map(symptom => ({
       name: symptom.name,
-      frequency: symptomData.reduce((sum, day) => sum + day[symptom.key as keyof typeof day], 0),
+      frequency: symptomData.reduce((sum, day) => sum + (day[symptom.key as keyof typeof day] as number), 0),
       color: symptom.color
     }))
   }
