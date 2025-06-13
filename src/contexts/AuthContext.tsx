@@ -1,8 +1,8 @@
 import React, { createContext, useContext, useEffect, useState, ReactNode } from 'react'
 import { createClient, SupabaseClient, User, Session } from '@supabase/supabase-js'
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'https://xnxovbqqpdrmjzufevhe.supabase.co'
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhueG92YnFxcGRybWp6dWZldmhlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk0MzM3MzQsImV4cCI6MjA2NTAwOTczNH0.BdY8YeM5cbFKTZm-XztIsKrufTv8yF7GOpHl-txPVzg'
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'your-supabase-url'
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || 'your-supabase-anon-key'
 
 const supabase = createClient(supabaseUrl, supabaseAnonKey)
 
