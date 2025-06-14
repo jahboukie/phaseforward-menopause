@@ -43,7 +43,7 @@ export default function SymptomChart() {
   const getSymptomFrequency = () => {
     return symptoms.map(symptom => ({
       name: symptom.name,
-      frequency: symptomData.reduce((sum, day) => sum + day[symptom.key as keyof typeof day], 0),
+      frequency: symptomData.reduce((sum, day) => sum + Number(day[symptom.key as keyof typeof day] || 0), 0),
       color: symptom.color
     }))
   }

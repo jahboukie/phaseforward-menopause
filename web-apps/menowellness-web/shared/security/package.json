@@ -1,0 +1,48 @@
+{
+  "name": "ecosystem-security-foundation",
+  "version": "1.0.0",
+  "description": "Military-Grade Security Foundation for Ecosystem Intelligence Platform",
+  "main": "security-middleware.js",
+  "scripts": {
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint .",
+    "security-audit": "npm audit"
+  },
+  "keywords": [
+    "security",
+    "encryption",
+    "hipaa",
+    "healthcare",
+    "audit",
+    "mfa",
+    "zero-knowledge"
+  ],
+  "author": "Ecosystem Intelligence Team",
+  "license": "PROPRIETARY",
+  "dependencies": {
+    "argon2": "^0.31.2",
+    "speakeasy": "^2.0.0",
+    "qrcode": "^1.5.3",
+    "pg": "^8.11.3",
+    "crypto": "^1.0.1",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "eslint": "^8.57.0",
+    "supertest": "^6.3.4"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jahboukie/ecosystem-intelligence.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jahboukie/ecosystem-intelligence/issues"
+  },
+  "homepage": "https://github.com/jahboukie/ecosystem-intelligence#readme"
+}

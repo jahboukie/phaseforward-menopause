@@ -1,0 +1,177 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: ecosystem-postgres
+    environment:
+      POSTGRES_DB: ecosystem_intelligence
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./scripts/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
+    networks:
+      - ecosystem-network
+
+  # Redis Cache
+  redis:
+    image: redis:7-alpine
+    container_name: ecosystem-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - ecosystem-network
+
+  # API Gateway Service
+  api-gateway:
+    build:
+      context: ./api-gateway
+      dockerfile: Dockerfile
+    container_name: ecosystem-api-gateway
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - API_GATEWAY_PORT=3000
+      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/ecosystem_intelligence
+      - REDIS_URL=redis://redis:6379
+    depends_on:
+      - postgres
+      - redis
+    volumes:
+      - ./api-gateway:/app
+      - /app/node_modules
+    networks:
+      - ecosystem-network
+
+  # SSO Authentication Service
+  sso-service:
+    build:
+      context: ./sso-service
+      dockerfile: Dockerfile
+    container_name: ecosystem-sso
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=development
+      - SSO_SERVICE_PORT=3001
+      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/ecosystem_intelligence
+      - REDIS_URL=redis://redis:6379
+    depends_on:
+      - postgres
+      - redis
+    volumes:
+      - ./sso-service:/app
+      - /app/node_modules
+    networks:
+      - ecosystem-network
+
+  # Analytics Engine
+  analytics-engine:
+    build:
+      context: ./analytics-engine
+      dockerfile: Dockerfile
+    container_name: ecosystem-analytics
+    ports:
+      - "3002:3002"
+    environment:
+      - NODE_ENV=development
+      - ANALYTICS_ENGINE_PORT=3002
+      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/ecosystem_intelligence
+      - REDIS_URL=redis://redis:6379
+    depends_on:
+      - postgres
+      - redis
+    volumes:
+      - ./analytics-engine:/app
+      - /app/node_modules
+    networks:
+      - ecosystem-network
+
+  # AI Orchestration Service
+  ai-orchestration:
+    build:
+      context: ./ai-orchestration
+      dockerfile: Dockerfile
+    container_name: ecosystem-ai
+    ports:
+      - "3003:3003"
+    environment:
+      - NODE_ENV=development
+      - AI_ORCHESTRATION_PORT=3003
+      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/ecosystem_intelligence
+      - REDIS_URL=redis://redis:6379
+    depends_on:
+      - postgres
+      - redis
+    volumes:
+      - ./ai-orchestration:/app
+      - /app/node_modules
+    networks:
+      - ecosystem-network
+
+  # Provider Dashboard Backend
+  provider-dashboard:
+    build:
+      context: ./provider-dashboard
+      dockerfile: Dockerfile
+    container_name: ecosystem-provider
+    ports:
+      - "3004:3004"
+    environment:
+      - NODE_ENV=development
+      - PROVIDER_DASHBOARD_PORT=3004
+      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/ecosystem_intelligence
+      - REDIS_URL=redis://redis:6379
+    depends_on:
+      - postgres
+      - redis
+    volumes:
+      - ./provider-dashboard:/app
+      - /app/node_modules
+    networks:
+      - ecosystem-network
+
+  # SentimentAsAService Master Data Brain
+  sentimentasaservice:
+    build:
+      context: ./sentimentasaservice
+      dockerfile: Dockerfile
+    container_name: ecosystem-sentiment
+    ports:
+      - "3005:3005"
+    environment:
+      - NODE_ENV=development
+      - PORT=3005
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_NAME=ecosystem_intelligence
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - JWT_SECRET=your-super-secret-jwt-key-change-this-in-production
+      - INTERNAL_SERVICE_KEY=your-internal-service-key-change-this
+      - ALLOWED_ORIGINS=http://localhost:3000,http://localhost:3001,http://localhost:3002,http://localhost:3003,http://localhost:3004
+    depends_on:
+      - postgres
+      - redis
+    volumes:
+      - ./sentimentasaservice:/app
+      - /app/node_modules
+    networks:
+      - ecosystem-network
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  ecosystem-network:
+    driver: bridge

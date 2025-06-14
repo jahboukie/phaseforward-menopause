@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧘 SoberPal - AI-Powered Addiction Recovery Support | Dr. Alex AI</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 25%, #5eead4 50%, #14b8a6 75%, #0f766e 100%);
+            color: #134e4a;
+            min-height: 100vh;
+        }
+        
+        .demo-banner {
+            background: rgba(19, 78, 74, 0.9);
+            color: #f0fdfa;
+            text-align: center;
+            padding: 12px;
+            font-weight: 600;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, #5eead4, #14b8a6, #0f766e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .header .tagline {
+            font-size: 1.3rem;
+            color: #14b8a6;
+            margin-bottom: 20px;
+        }
+        
+        .header .description {
+            font-size: 1.1rem;
+            color: #134e4a;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(20, 184, 166, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(20, 184, 166, 0.3);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .feature-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #14b8a6;
+            margin-bottom: 15px;
+        }
+        
+        .feature-description {
+            color: #134e4a;
+            line-height: 1.5;
+        }
+        
+        .combinations-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+        }
+        
+        .combinations-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: #14b8a6;
+            margin-bottom: 30px;
+        }
+        
+        .combination-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+        
+        .combination-card {
+            background: linear-gradient(135deg, #f0fdfa, #ccfbf1);
+            border-radius: 15px;
+            padding: 25px;
+            border-left: 5px solid #5eead4;
+        }
+        
+        .combination-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .combination-icons {
+            font-size: 1.5rem;
+            margin-right: 15px;
+        }
+        
+        .combination-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #14b8a6;
+        }
+        
+        .combination-description {
+            color: #134e4a;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+        
+        .combination-benefits {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .combination-benefits li {
+            color: #14b8a6;
+            margin-bottom: 5px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .combination-benefits li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #059669;
+            font-weight: bold;
+        }
+        
+        .pricing-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .pricing-title {
+            font-size: 2rem;
+            color: #14b8a6;
+            margin-bottom: 30px;
+        }
+        
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .pricing-card {
+            background: linear-gradient(135deg, #ffffff, #f0fdfa);
+            border-radius: 15px;
+            padding: 30px;
+            border: 2px solid #5eead4;
+            position: relative;
+        }
+        
+        .pricing-card.popular {
+            border-color: #dc2626;
+            background: linear-gradient(135deg, #fef2f2, #fee2e2);
+        }
+        
+        .pricing-card.popular::before {
+            content: "MOST POPULAR";
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #dc2626;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .price-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #14b8a6;
+        }
+        
+        .price-period {
+            color: #134e4a;
+            margin-bottom: 20px;
+        }
+        
+        .price-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 25px;
+        }
+        
+        .price-features li {
+            color: #134e4a;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .price-features li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #059669;
+            font-weight: bold;
+        }
+        
+        .cta-button {
+            background: linear-gradient(135deg, #5eead4, #14b8a6);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        
+        .cta-button:hover {
+            background: linear-gradient(135deg, #14b8a6, #0f766e);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(94, 234, 212, 0.4);
+        }
+        
+        .demo-section {
+            text-align: center;
+            margin: 50px 0;
+        }
+        
+        .demo-button {
+            background: linear-gradient(135deg, #059669, #047857);
+            color: white;
+            padding: 20px 40px;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 0 10px 10px 10px;
+        }
+        
+        .demo-button:hover {
+            background: linear-gradient(135deg, #047857, #065f46);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(5, 150, 105, 0.4);
+        }
+        
+        .back-button {
+            background: rgba(255, 255, 255, 0.2);
+            color: #14b8a6;
+            padding: 15px 25px;
+            border: 2px solid #14b8a6;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 0 10px 10px 10px;
+        }
+        
+        .back-button:hover {
+            background: #14b8a6;
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .combinations-section {
+                padding: 25px;
+            }
+            
+            .demo-button, .back-button {
+                width: 100%;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-banner">
+        🎭 Demo Environment - Showcasing SoberPal App Features & Integration Capabilities
+    </div>
+    
+    <div class="container">
+        <div class="header">
+            <h1>🧘 SoberPal</h1>
+            <div class="tagline">Your AI-Powered Addiction Recovery Companion</div>
+            <div class="description">
+                Comprehensive addiction recovery support with AI-powered crisis detection, progress tracking, peer community, and professional integration. 
+                Build lasting sobriety with personalized support and evidence-based recovery tools.
+            </div>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <div class="feature-title">Recovery Progress Tracking</div>
+                <div class="feature-description">
+                    Track sobriety milestones, mood patterns, trigger events, and recovery metrics with AI-powered insights and personalized recommendations.
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🚨</div>
+                <div class="feature-title">Crisis Detection & Intervention</div>
+                <div class="feature-description">
+                    Advanced AI algorithms detect early warning signs of relapse risk and provide immediate intervention resources and support.
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">👥</div>
+                <div class="feature-title">Peer Support Community</div>
+                <div class="feature-description">
+                    Connect with verified recovery community, share experiences, attend virtual meetings, and build supportive relationships.
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <div class="feature-title">Personalized Recovery Plans</div>
+                <div class="feature-description">
+                    AI-generated recovery strategies tailored to your addiction type, triggers, strengths, and personal recovery goals.
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🏥</div>
+                <div class="feature-title">Professional Integration</div>
+                <div class="feature-description">
+                    Seamless coordination with addiction specialists, therapists, and healthcare providers for comprehensive recovery support.
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">💪</div>
+                <div class="feature-title">Relapse Prevention Tools</div>
+                <div class="feature-description">
+                    Comprehensive toolkit for managing cravings, avoiding triggers, building healthy habits, and maintaining long-term sobriety.
+                </div>
+            </div>
+        </div>
+        
+        <div class="combinations-section">
+            <h2 class="combinations-title">🤝 Powerful Recovery Combinations</h2>
+            
+            <div class="combination-cards">
+                <div class="combination-card">
+                    <div class="combination-header">
+                        <div class="combination-icons">🧘💑</div>
+                        <div class="combination-title">SoberPal + SupportivePartner</div>
+                    </div>
+                    <div class="combination-description">
+                        Essential for couples in recovery. Your partner learns how to support your sobriety journey while maintaining healthy boundaries and their own wellness.
+                    </div>
+                    <ul class="combination-benefits">
+                        <li>Partner education about addiction and recovery</li>
+                        <li>Healthy boundary setting and maintenance</li>
+                        <li>Crisis intervention and relapse prevention</li>
+                        <li>Family healing and communication strategies</li>
+                        <li>Codependency prevention and support</li>
+                    </ul>
+                </div>
+                
+                <div class="combination-card">
+                    <div class="combination-header">
+                        <div class="combination-icons">🧘🧠</div>
+                        <div class="combination-title">SoberPal + InnerArchitect</div>
+                    </div>
+                    <div class="combination-description">
+                        Strengthen recovery with personal development tools. Build new identity in sobriety, manage triggers, and create meaningful life goals.
+                    </div>
+                    <ul class="combination-benefits">
+                        <li>Identity reconstruction in recovery</li>
+                        <li>Mindfulness for trigger management</li>
+                        <li>Goal setting for sober life vision</li>
+                        <li>Stress management without substances</li>
+                        <li>Personal growth and empowerment</li>
+                    </ul>
+                </div>
+                
+                <div class="combination-card">
+                    <div class="combination-header">
+                        <div class="combination-icons">🧘💭</div>
+                        <div class="combination-title">SoberPal + MyConfidant</div>
+                    </div>
+                    <div class="combination-description">
+                        Address relationship damage from addiction with professional counseling integration and communication repair tools.
+                    </div>
+                    <ul class="combination-benefits">
+                        <li>Relationship repair and rebuilding</li>
+                        <li>Communication skills in recovery</li>
+                        <li>Trust rebuilding strategies</li>
+                        <li>Couple's recovery support</li>
+                        <li>Professional counseling access</li>
+                    </ul>
+                </div>
+                
+                <div class="combination-card">
+                    <div class="combination-header">
+                        <div class="combination-icons">🧘🏥</div>
+                        <div class="combination-title">SoberPal + Provider Dashboard</div>
+                    </div>
+                    <div class="combination-description">
+                        Healthcare providers gain real-time recovery insights, monitor patient progress, and provide data-driven addiction treatment.
+                    </div>
+                    <ul class="combination-benefits">
+                        <li>Real-time recovery data for providers</li>
+                        <li>Crisis alerts and early intervention</li>
+                        <li>Treatment effectiveness monitoring</li>
+                        <li>Medication compliance tracking</li>
+                        <li>Integrated addiction care coordination</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="pricing-section">
+            <h2 class="pricing-title">💎 Recovery Support Plans</h2>
+            
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <div class="price-number">$12.99</div>
+                    <div class="price-period">per month</div>
+                    <h3>Foundation</h3>
+                    <ul class="price-features">
+                        <li>Basic progress tracking</li>
+                        <li>Daily check-ins</li>
+                        <li>Community forum access</li>
+                        <li>Educational resources</li>
+                        <li>Crisis hotline integration</li>
+                    </ul>
+                    <button class="cta-button">Start Foundation Plan</button>
+                </div>
+                
+                <div class="pricing-card popular">
+                    <div class="price-number">$19.99</div>
+                    <div class="price-period">per month</div>
+                    <h3>Recovery Plus</h3>
+                    <ul class="price-features">
+                        <li>All Foundation features</li>
+                        <li>AI crisis detection</li>
+                        <li>Personalized recovery plans</li>
+                        <li>SupportivePartner integration</li>
+                        <li>Provider data sharing</li>
+                        <li>Advanced analytics</li>
+                    </ul>
+                    <button class="cta-button">Start Recovery Plan</button>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="price-number">$29.99</div>
+                    <div class="price-period">per month</div>
+                    <h3>Complete Support</h3>
+                    <ul class="price-features">
+                        <li>All Recovery Plus features</li>
+                        <li>InnerArchitect integration</li>
+                        <li>MyConfidant counseling access</li>
+                        <li>Priority crisis intervention</li>
+                        <li>Professional coaching sessions</li>
+                        <li>Family support coordination</li>
+                    </ul>
+                    <button class="cta-button">Start Complete Plan</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="demo-section">
+            <button class="demo-button" onclick="window.open('/soberpal-demo', '_blank')">
+                🧘 Try Interactive Demo
+            </button>
+            <button class="demo-button" onclick="window.open('/provider-demo', '_blank')">
+                🏥 Provider Dashboard Demo
+            </button>
+            <button class="back-button" onclick="window.history.back()">
+                ← Back to Ecosystem Overview
+            </button>
+        </div>
+    </div>
+    
+    <script>
+        console.log('🧘 SoberPal Landing Page Loaded');
+        
+        // Track landing page engagement
+        const landingAnalytics = {
+            app: 'SoberPal',
+            landingTime: new Date(),
+            referrer: document.referrer,
+            userAgent: navigator.userAgent
+        };
+        
+        localStorage.setItem('soberPalLanding', JSON.stringify(landingAnalytics));
+        
+        // Track interactions
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('cta-button')) {
+                console.log('💰 SoberPal subscription interest:', e.target.textContent);
+            } else if (e.target.classList.contains('demo-button')) {
+                console.log('🎮 SoberPal demo interest:', e.target.textContent);
+            }
+        });
+    </script>
+</body>
+</html>

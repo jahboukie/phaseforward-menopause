@@ -188,21 +188,37 @@ async function analyzeSentiment() {
     button.disabled = true;
 
     try {
-        // Simulate API call to Claude AI
-        await simulateApiCall();
-        
-        // Get analysis options
-        const healthcareContext = document.getElementById('healthcareContext').checked;
-        const relationshipContext = document.getElementById('relationshipContext').checked;
-        const crisisDetection = document.getElementById('crisisDetection').checked;
-
-        // Generate mock analysis results
-        const results = generateMockAnalysis(input, {
-            healthcareContext,
-            relationshipContext,
-            crisisDetection
+        // Call real Claude AI API
+        const response = await fetch('/api/sentiment/analyze', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                text: input,
+                includeEmotions: true,
+                includeKeyTerms: true,
+                healthcareContext: document.getElementById('healthcareContext').checked,
+                relationshipContext: document.getElementById('relationshipContext').checked,
+                crisisDetection: document.getElementById('crisisDetection').checked
+            })
         });
 
+        if (!response.ok) {
+            throw new Error(`API call failed: ${response.status}`);
+        }
+
+        const apiResult = await response.json();
+
+        console.log('API Response:', apiResult);
+
+        if (!apiResult.success) {
+            console.error('API Error:', apiResult);
+            throw new Error('API returned error: ' + (apiResult.error || 'Unknown error'));
+        }
+
+        // Convert API result to display format
+        const results = convertApiResultToDisplayFormat(apiResult.result);
         displayAnalysisResults(results);
 
     } catch (error) {
@@ -210,7 +226,8 @@ async function analyzeSentiment() {
         document.getElementById('analysisResults').innerHTML = `
             <div class="text-red-400 text-center py-8">
                 <i class="fas fa-exclamation-triangle text-4xl mb-4"></i>
-                <p>Analysis failed. Please try again.</p>
+                <p>Analysis failed: ${error.message}</p>
+                <p class="text-sm text-gray-400 mt-2">Check console for details</p>
             </div>
         `;
     } finally {
@@ -220,9 +237,49 @@ async function analyzeSentiment() {
     }
 }
 
-// Simulate API call delay
-function simulateApiCall() {
-    return new Promise(resolve => setTimeout(resolve, 2000));
+// Convert API result to display format
+function convertApiResultToDisplayFormat(apiResult) {
+    console.log('Converting API result:', apiResult);
+
+    // Handle emotions - Claude AI returns different structure
+    let emotions = {};
+    if (apiResult.emotions) {
+        if (apiResult.emotions.primary && apiResult.emotions.emotional_intensity) {
+            emotions[apiResult.emotions.primary] = apiResult.emotions.emotional_intensity;
+        }
+        if (apiResult.emotions.secondary && Array.isArray(apiResult.emotions.secondary)) {
+            apiResult.emotions.secondary.forEach(emotion => {
+                emotions[emotion] = 0.7; // Default intensity for secondary emotions
+            });
+        }
+    }
+
+    return {
+        sentiment: {
+            score: apiResult.sentiment.score,
+            category: apiResult.sentiment.category,
+            confidence: apiResult.sentiment.confidence
+        },
+        emotions: emotions,
+        healthcareContext: apiResult.healthcareContext ? {
+            health_status_trend: apiResult.healthcareContext.health_status_trend,
+            treatment_sentiment: apiResult.healthcareContext.treatment_sentiment,
+            indicators: apiResult.healthcareContext.indicators || []
+        } : null,
+        relationshipContext: apiResult.relationshipContext ? {
+            relationship_health: apiResult.relationshipContext.relationship_health,
+            support_level: apiResult.relationshipContext.support_level,
+            communication_quality: apiResult.relationshipContext.communication_quality,
+            indicators: apiResult.relationshipContext.indicators || []
+        } : null,
+        crisisAssessment: apiResult.crisisAssessment ? {
+            risk_level: apiResult.crisisAssessment.risk_level,
+            recommended_action: apiResult.crisisAssessment.recommended_action,
+            indicators: apiResult.crisisAssessment.indicators || []
+        } : null,
+        processingTime: apiResult.processingTime || 0,
+        provider: apiResult.provider || 'claude-ai'
+    };
 }
 
 // Generate mock analysis results

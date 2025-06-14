@@ -39,12 +39,18 @@ app.post('/api/sentiment/analyze', async (req, res) => {
 
   if (claudeApiKey && text) {
     try {
+      console.log('Attempting Claude AI analysis for:', text.substring(0, 50) + '...');
       // Use real Claude AI analysis
       const claudeResult = await analyzeWithClaudeAI(text, claudeApiKey);
+      console.log('Claude AI analysis successful');
       return res.json(claudeResult);
     } catch (error) {
-      console.log('Claude AI failed, falling back to mock:', error.message);
+      console.error('Claude AI failed, falling back to mock:', error.message);
+      console.error('Full error:', error);
+      console.error('API Key present:', !!claudeApiKey);
     }
+  } else {
+    console.log('No Claude API key or text, using mock data');
   }
 
   // Fallback to mock analysis for demo
@@ -105,6 +111,24 @@ app.get('/', (req, res) => {
 // Serve API explorer
 app.get('/api-explorer', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'api-explorer.html'));
+});
+
+// Serve pitch deck
+app.get('/pitch', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'pitch.html'));
+});
+
+// Alternative routes for pitch deck
+app.get('/deck', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'pitch.html'));
+});
+
+app.get('/investor', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'pitch.html'));
+});
+
+app.get('/presentation', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'pitch.html'));
 });
 
 // Start server
@@ -214,7 +238,18 @@ Return your analysis in this exact JSON format:
       }
     });
 
-    const analysis = JSON.parse(response.data.content[0].text);
+    console.log('Claude AI raw response:', response.data.content[0].text);
+
+    let analysis;
+    try {
+      analysis = JSON.parse(response.data.content[0].text);
+    } catch (parseError) {
+      console.error('Failed to parse Claude AI response as JSON:', parseError);
+      console.error('Raw response:', response.data.content[0].text);
+      throw new Error('Claude AI returned invalid JSON');
+    }
+
+    console.log('Parsed Claude AI analysis:', analysis);
 
     return {
       success: true,

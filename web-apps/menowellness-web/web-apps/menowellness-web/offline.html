@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MenoWellness - Offline</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #fdf2f8 0%, #f3e8ff 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #374151;
+        }
+        
+        .container {
+            max-width: 400px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            text-align: center;
+            margin: 1rem;
+        }
+        
+        .icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ec4899;
+            margin-bottom: 0.5rem;
+        }
+        
+        p {
+            color: #6b7280;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .features {
+            text-align: left;
+            background: #f9fafb;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .features h3 {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 0.75rem;
+        }
+        
+        .features ul {
+            list-style: none;
+            space-y: 0.5rem;
+        }
+        
+        .features li {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .features li::before {
+            content: "✓";
+            color: #10b981;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+        
+        .button {
+            background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.2s;
+        }
+        
+        .button:hover {
+            transform: translateY(-1px);
+        }
+        
+        .status {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: #fef3c7;
+            border-radius: 8px;
+            border-left: 4px solid #f59e0b;
+        }
+        
+        .status p {
+            color: #92400e;
+            font-size: 0.875rem;
+            margin: 0;
+        }
+        
+        .retry-button {
+            background: #6b7280;
+            margin-top: 1rem;
+            margin-left: 0.5rem;
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                margin: 0.5rem;
+                padding: 1.5rem;
+            }
+            
+            .icon {
+                font-size: 3rem;
+            }
+            
+            h1 {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon">🌸</div>
+        <h1>MenoWellness</h1>
+        <p>You're currently offline, but you can still use many features of MenoWellness!</p>
+        
+        <div class="features">
+            <h3>Available Offline:</h3>
+            <ul>
+                <li>Track your symptoms</li>
+                <li>View previous entries</li>
+                <li>Access educational content</li>
+                <li>Review your progress</li>
+            </ul>
+        </div>
+        
+        <div class="status">
+            <p><strong>Offline Mode:</strong> Your data will automatically sync when you're back online.</p>
+        </div>
+        
+        <a href="/" class="button">Continue to App</a>
+        <button onclick="window.location.reload()" class="button retry-button">Retry Connection</button>
+        
+        <script>
+            // Auto-redirect when online
+            window.addEventListener('online', () => {
+                window.location.href = '/';
+            });
+            
+            // Show online status
+            function updateStatus() {
+                const status = document.querySelector('.status p');
+                if (navigator.onLine) {
+                    status.innerHTML = '<strong>Back Online:</strong> Redirecting to the app...';
+                    setTimeout(() => {
+                        window.location.href = '/';
+                    }, 1000);
+                } else {
+                    status.innerHTML = '<strong>Offline Mode:</strong> Your data will automatically sync when you\'re back online.';
+                }
+            }
+            
+            window.addEventListener('online', updateStatus);
+            window.addEventListener('offline', updateStatus);
+            
+            // Update status on load
+            updateStatus();
+        </script>
+    </div>
+</body>
+</html>
