@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { LightBulbIcon, ChartBarIcon, CalendarIcon } from '@heroicons/react/24/outline'
 import SentimentInsights from '../components/SentimentInsights'
 import FeatureGate from '../components/FeatureGate'
 import { useSubscription } from '../hooks/useSubscription'
 
 export default function HealthInsights() {
-  const { tier } = useSubscription()
+  const { } = useSubscription()
   const [timeRange, setTimeRange] = useState('30d')
 
   return (
