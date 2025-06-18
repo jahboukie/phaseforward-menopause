@@ -17,6 +17,10 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
+// Import bundle subscription routes
+import bundleSubscriptionsRouter from './api/bundle-subscriptions.js';
+app.use('/api/bundle-subscriptions', bundleSubscriptionsRouter);
+
 // Mama Grace configuration
 const CONVERSATION_STARTERS = [
   "My partner seems angry all the time - is this normal?",

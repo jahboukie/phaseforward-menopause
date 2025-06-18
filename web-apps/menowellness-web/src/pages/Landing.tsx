@@ -79,8 +79,8 @@ export default function Landing() {
 
   const pricingPlans = [
     {
-      name: "Basic Support",
-      price: 9.99,
+      name: "MenoWellness Basic",
+      price: 5.99,
       description: "Essential menopause tracking and basic AI guidance",
       features: [
         "Daily symptom tracking",
@@ -90,39 +90,46 @@ export default function Landing() {
         "Progress tracking"
       ],
       cta: "Start Free Trial",
-      popular: false
+      popular: false,
+      type: "individual"
     },
     {
-      name: "Complete Care",
+      name: "Couples Bundle",
       price: 19.99,
-      description: "Comprehensive menopause support with personalized care",
+      originalPrice: 15.98,
+      description: "MenoWellness + SupportPartner for both partners",
       features: [
-        "Advanced symptom tracking",
-        "Personalized AI recommendations",
-        "HRT optimization guidance",
-        "Nutrition and exercise plans", 
-        "Sleep quality monitoring",
-        "Stress management tools",
-        "Priority customer support"
+        "Everything in MenoWellness Basic",
+        "SupportPartner app for your partner",
+        "Cross-app insights & analytics",
+        "Shared progress dashboard",
+        "Partner connection alerts",
+        "Relationship health tracking",
+        "Couples communication tools"
       ],
-      cta: "Start Free Trial",
-      popular: true
+      cta: "Start Bundle Trial",
+      popular: true,
+      type: "bundle",
+      savings: "Best Value for Couples"
     },
     {
-      name: "Ultimate Wellness",
+      name: "Ultimate Couples",
       price: 29.99,
-      description: "Complete menopause wellness with premium features",
+      originalPrice: 35.98,
+      description: "Premium everything for both partners",
       features: [
-        "Everything in Complete Care",
-        "Weekly AI wellness coaching",
-        "Provider integration support",
-        "Advanced analytics dashboard",
-        "Custom meal planning",
+        "Unlimited symptom tracking",
+        "Unlimited AI insights",
+        "Advanced partner coaching",
+        "Couples therapy tools",
+        "Priority support",
         "Live expert consultations",
-        "Family support resources"
+        "Custom intervention strategies"
       ],
-      cta: "Start Free Trial", 
-      popular: false
+      cta: "Start Premium Trial", 
+      popular: false,
+      type: "bundle",
+      savings: "Save $6/month"
     }
   ]
 
@@ -261,6 +268,98 @@ export default function Landing() {
         </div>
       </section>
 
+      {/* Partner Support Section */}
+      <section className="py-20 bg-gradient-to-r from-blue-50 to-indigo-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center bg-blue-100 text-blue-800 text-sm font-medium px-4 py-2 rounded-full mb-4">
+              💙 New: Partner Support Integration
+            </div>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Your Partner's Journey Matters Too</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Include your partner in your menopause journey with our integrated SupportPartner app. 
+              Better support, better outcomes, stronger relationships.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="bg-white rounded-2xl shadow-xl p-8">
+                <div className="text-center mb-6">
+                  <div className="text-6xl mb-4">🤝</div>
+                  <h3 className="text-2xl font-bold text-gray-900">SupportPartner App</h3>
+                  <p className="text-gray-600">AI-powered guidance for your partner</p>
+                </div>
+                <div className="space-y-4">
+                  <div className="flex items-center p-3 bg-blue-50 rounded-lg">
+                    <div className="w-3 h-3 bg-blue-500 rounded-full mr-3"></div>
+                    <span className="text-sm font-medium">Mama Grace AI Coach</span>
+                  </div>
+                  <div className="flex items-center p-3 bg-green-50 rounded-lg">
+                    <div className="w-3 h-3 bg-green-500 rounded-full mr-3"></div>
+                    <span className="text-sm font-medium">Communication Tools</span>
+                  </div>
+                  <div className="flex items-center p-3 bg-purple-50 rounded-lg">
+                    <div className="w-3 h-3 bg-purple-500 rounded-full mr-3"></div>
+                    <span className="text-sm font-medium">Education Hub</span>
+                  </div>
+                  <div className="flex items-center p-3 bg-orange-50 rounded-lg">
+                    <div className="w-3 h-3 bg-orange-500 rounded-full mr-3"></div>
+                    <span className="text-sm font-medium">Progress Tracking</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h3 className="text-3xl font-bold text-gray-900 mb-6">Better Together</h3>
+              <div className="space-y-6">
+                <div className="flex items-start">
+                  <div className="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                    <span className="text-blue-600 font-bold">1</span>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold text-gray-900 mb-2">Connected Insights</h4>
+                    <p className="text-gray-600">Your symptoms and progress automatically shared with your partner (with your permission)</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <div className="flex-shrink-0 w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                    <span className="text-green-600 font-bold">2</span>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold text-gray-900 mb-2">AI-Guided Support</h4>
+                    <p className="text-gray-600">Your partner gets personalized coaching on how to support you through tough days</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <div className="flex-shrink-0 w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-4">
+                    <span className="text-purple-600 font-bold">3</span>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold text-gray-900 mb-2">Relationship Analytics</h4>
+                    <p className="text-gray-600">Track how your menopause journey affects your relationship and get improvement suggestions</p>
+                  </div>
+                </div>
+              </div>
+              <div className="mt-8">
+                <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6 rounded-xl">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <h4 className="text-lg font-bold">Bundle & Save</h4>
+                      <p className="text-blue-100">Get both apps with shared insights</p>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-2xl font-bold">$19.99/mo</div>
+                      <div className="text-sm text-blue-200 line-through">$15.98 separate</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Features Section */}
       <section id="features" className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -358,14 +457,23 @@ export default function Landing() {
                 key={index}
                 className={`relative rounded-2xl p-8 ${
                   plan.popular
-                    ? 'bg-pink-600 text-white shadow-2xl scale-105'
+                    ? plan.type === 'bundle' 
+                      ? 'bg-gradient-to-br from-blue-600 to-purple-600 text-white shadow-2xl scale-105'
+                      : 'bg-pink-600 text-white shadow-2xl scale-105'
                     : 'bg-white border border-gray-200 shadow-lg'
                 }`}
               >
                 {plan.popular && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-yellow-400 text-gray-900 px-4 py-1 rounded-full text-sm font-semibold">
-                      Most Popular
+                    <span className={`${plan.type === 'bundle' ? 'bg-yellow-400' : 'bg-yellow-400'} text-gray-900 px-4 py-1 rounded-full text-sm font-semibold`}>
+                      {plan.savings || 'Most Popular'}
+                    </span>
+                  </div>
+                )}
+                {plan.type === 'bundle' && !plan.popular && (
+                  <div className="absolute -top-3 right-4">
+                    <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-semibold">
+                      Bundle
                     </span>
                   </div>
                 )}
@@ -373,23 +481,42 @@ export default function Landing() {
                   <h3 className={`text-2xl font-bold mb-2 ${plan.popular ? 'text-white' : 'text-gray-900'}`}>
                     {plan.name}
                   </h3>
-                  <p className={`mb-4 ${plan.popular ? 'text-pink-100' : 'text-gray-600'}`}>
+                  <p className={`mb-4 ${plan.popular ? (plan.type === 'bundle' ? 'text-blue-100' : 'text-pink-100') : 'text-gray-600'}`}>
                     {plan.description}
                   </p>
                   <div className="mb-4">
+                    {plan.originalPrice && (
+                      <div className={`text-sm ${plan.popular ? (plan.type === 'bundle' ? 'text-blue-200' : 'text-pink-200') : 'text-gray-500'} line-through mb-1`}>
+                        ${plan.originalPrice}/month separate
+                      </div>
+                    )}
                     <span className={`text-4xl font-bold ${plan.popular ? 'text-white' : 'text-gray-900'}`}>
                       ${plan.price}
                     </span>
-                    <span className={`text-lg ${plan.popular ? 'text-pink-100' : 'text-gray-600'}`}>
+                    <span className={`text-lg ${plan.popular ? (plan.type === 'bundle' ? 'text-blue-100' : 'text-pink-100') : 'text-gray-600'}`}>
                       /month
                     </span>
+                    {plan.savings && plan.originalPrice && (
+                      <div className={`text-sm mt-1 ${plan.popular ? 'text-yellow-200' : 'text-green-600'} font-semibold`}>
+                        {plan.originalPrice > plan.price ? `Save $${(plan.originalPrice - plan.price).toFixed(2)}/mo` : plan.savings}
+                      </div>
+                    )}
                   </div>
                 </div>
                 <ul className="space-y-4 mb-8">
                   {plan.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-center">
-                      <CheckIcon className={`h-5 w-5 mr-3 ${plan.popular ? 'text-pink-200' : 'text-green-500'}`} />
-                      <span className={plan.popular ? 'text-pink-100' : 'text-gray-700'}>{feature}</span>
+                      <CheckIcon className={`h-5 w-5 mr-3 ${
+                        plan.popular 
+                          ? plan.type === 'bundle' ? 'text-blue-200' : 'text-pink-200'
+                          : 'text-green-500'
+                      }`} />
+                      <span className={plan.popular 
+                        ? plan.type === 'bundle' ? 'text-blue-100' : 'text-pink-100'
+                        : 'text-gray-700'
+                      }>
+                        {feature}
+                      </span>
                     </li>
                   ))}
                 </ul>
@@ -397,8 +524,12 @@ export default function Landing() {
                   to="/auth"
                   className={`w-full py-3 px-6 rounded-lg font-semibold text-center block transition-colors ${
                     plan.popular
-                      ? 'bg-white text-pink-600 hover:bg-gray-100'
-                      : 'bg-pink-600 text-white hover:bg-pink-700'
+                      ? plan.type === 'bundle'
+                        ? 'bg-white text-blue-600 hover:bg-gray-100'
+                        : 'bg-white text-pink-600 hover:bg-gray-100'
+                      : plan.type === 'bundle'
+                        ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700'
+                        : 'bg-pink-600 text-white hover:bg-pink-700'
                   }`}
                 >
                   {plan.cta}
@@ -409,6 +540,26 @@ export default function Landing() {
 
           <div className="text-center mt-12">
             <p className="text-gray-600 mb-4">All plans include a 7-day free trial. Cancel anytime.</p>
+            <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-6 mb-6">
+              <h4 className="text-lg font-semibold text-gray-900 mb-2">🎯 Bundle Benefits</h4>
+              <p className="text-gray-600 mb-4">
+                Couples who use both apps together see 40% better outcomes and stronger relationship satisfaction.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                <div className="flex items-center justify-center">
+                  <CheckIcon className="h-4 w-4 text-blue-500 mr-2" />
+                  <span>Shared Progress Insights</span>
+                </div>
+                <div className="flex items-center justify-center">
+                  <CheckIcon className="h-4 w-4 text-blue-500 mr-2" />
+                  <span>Partner Alert System</span>
+                </div>
+                <div className="flex items-center justify-center">
+                  <CheckIcon className="h-4 w-4 text-blue-500 mr-2" />
+                  <span>Relationship Analytics</span>
+                </div>
+              </div>
+            </div>
             <div className="flex justify-center items-center space-x-6 text-sm text-gray-500">
               <span className="flex items-center">
                 <ShieldCheckIcon className="h-4 w-4 text-green-500 mr-1" />

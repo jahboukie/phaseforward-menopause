@@ -5,7 +5,10 @@ export enum SubscriptionTier {
   FREE = 'free',
   BASIC = 'basic',
   COMPLETE = 'complete',
-  COUPLES_THERAPY_PLUS = 'couples_therapy_plus'
+  COUPLES_THERAPY_PLUS = 'couples_therapy_plus',
+  // New Bundle Tiers
+  COUPLES_BUNDLE = 'couples_bundle',
+  ULTIMATE_COUPLES = 'ultimate_couples'
 }
 
 export interface FeatureAccess {
@@ -169,6 +172,66 @@ export const FEATURE_ACCESS: Record<SubscriptionTier, FeatureAccess> = {
     basicCorrelationInsights: true,
     advancedCorrelationAnalytics: true,
     enterpriseAnalyticsDashboard: true,
+  },
+
+  [SubscriptionTier.COUPLES_BUNDLE]: {
+    // Couples Bundle - $19.99 - MenoWellness Basic + SupportPartner Basic
+    basicEducation: true,
+    dailyInsights: true,
+    progressTracking: true,
+    basicCommunicationTips: true,
+    advancedCommunicationGuides: true,
+    crisisIntervention: false,
+    basicAIGuidance: true,
+    advancedAICoaching: false,
+    personalizedSessions: false,
+    simpleMoodTracking: true,
+    advancedMoodInsights: true,
+    relationshipAnalytics: true,
+    emailSupport: true,
+    priorityEmailSupport: false,
+    phoneVideoSupport: false,
+    dedicatedSpecialist: false,
+    crisisSupportLine: false,
+    weeklyCheckins: true,
+    customSupportPlans: false,
+    couplesTherapyResources: false,
+    liveExpertConsultations: false,
+    familySupportIntegration: true,
+    customInterventionStrategies: false,
+    basicCorrelationInsights: true,
+    advancedCorrelationAnalytics: true,
+    enterpriseAnalyticsDashboard: false,
+  },
+
+  [SubscriptionTier.ULTIMATE_COUPLES]: {
+    // Ultimate Couples - $29.99 - Premium everything for both partners
+    basicEducation: true,
+    dailyInsights: true,
+    progressTracking: true,
+    basicCommunicationTips: true,
+    advancedCommunicationGuides: true,
+    crisisIntervention: true,
+    basicAIGuidance: true,
+    advancedAICoaching: true,
+    personalizedSessions: true,
+    simpleMoodTracking: true,
+    advancedMoodInsights: true,
+    relationshipAnalytics: true,
+    emailSupport: true,
+    priorityEmailSupport: true,
+    phoneVideoSupport: true,
+    dedicatedSpecialist: true,
+    crisisSupportLine: true,
+    weeklyCheckins: true,
+    customSupportPlans: true,
+    couplesTherapyResources: true,
+    liveExpertConsultations: true,
+    familySupportIntegration: true,
+    customInterventionStrategies: true,
+    basicCorrelationInsights: true,
+    advancedCorrelationAnalytics: true,
+    enterpriseAnalyticsDashboard: true,
   }
 };
 
@@ -188,6 +251,11 @@ export function getSubscriptionTierFromPriceId(priceId: string): SubscriptionTie
       return SubscriptionTier.COMPLETE;
     case 'price_1RYnSTELGHd3NbdJQ9OyjJsZ':
       return SubscriptionTier.COUPLES_THERAPY_PLUS;
+    // Bundle Price IDs (to be created in Stripe)
+    case 'price_couples_bundle_1999':
+      return SubscriptionTier.COUPLES_BUNDLE;
+    case 'price_ultimate_couples_2999':
+      return SubscriptionTier.ULTIMATE_COUPLES;
     default:
       return SubscriptionTier.FREE;
   }
@@ -221,6 +289,10 @@ export function getTierDisplayName(tier: SubscriptionTier): string {
       return 'Complete Partner';
     case SubscriptionTier.COUPLES_THERAPY_PLUS:
       return 'Couples Therapy Plus';
+    case SubscriptionTier.COUPLES_BUNDLE:
+      return 'Couples Bundle';
+    case SubscriptionTier.ULTIMATE_COUPLES:
+      return 'Ultimate Couples';
     default:
       return 'Unknown';
   }
@@ -236,7 +308,63 @@ export function getTierPrice(tier: SubscriptionTier): number {
       return 19.99;
     case SubscriptionTier.COUPLES_THERAPY_PLUS:
       return 29.99;
+    case SubscriptionTier.COUPLES_BUNDLE:
+      return 19.99;
+    case SubscriptionTier.ULTIMATE_COUPLES:
+      return 29.99;
     default:
       return 0;
   }
+}
+
+// New Bundle-specific utilities
+export interface BundleSubscription {
+  primaryUserId: string; // MenoWellness user
+  partnerUserId: string; // SupportivePartner user
+  bundleTier: SubscriptionTier;
+  stripeSubscriptionId: string;
+  sharedFeatures: SharedFeatureAccess;
+  createdAt: Date;
+  lastUpdated: Date;
+}
+
+export interface SharedFeatureAccess {
+  combinedAIQueries: number;
+  crossAppInsights: boolean;
+  relationshipAnalytics: boolean;
+  prioritySupport: boolean;
+  couplesTherapyTools: boolean;
+}
+
+export function getBundleFeatureAccess(tier: SubscriptionTier): SharedFeatureAccess {
+  switch (tier) {
+    case SubscriptionTier.COUPLES_BUNDLE:
+      return {
+        combinedAIQueries: 100, // 50 each app
+        crossAppInsights: true,
+        relationshipAnalytics: true,
+        prioritySupport: false,
+        couplesTherapyTools: false,
+      };
+    case SubscriptionTier.ULTIMATE_COUPLES:
+      return {
+        combinedAIQueries: -1, // Unlimited
+        crossAppInsights: true,
+        relationshipAnalytics: true,
+        prioritySupport: true,
+        couplesTherapyTools: true,
+      };
+    default:
+      return {
+        combinedAIQueries: 0,
+        crossAppInsights: false,
+        relationshipAnalytics: false,
+        prioritySupport: false,
+        couplesTherapyTools: false,
+      };
+  }
+}
+
+export function isBundleTier(tier: SubscriptionTier): boolean {
+  return tier === SubscriptionTier.COUPLES_BUNDLE || tier === SubscriptionTier.ULTIMATE_COUPLES;
 }
