@@ -17,25 +17,28 @@ const BUNDLE_PRICING = {
     priceId: 'price_couples_bundle_1999',
     amount: 1999, // $19.99 in cents
     name: 'Couples Bundle',
-    description: 'MenoWellness Basic + SupportPartner Basic',
+    description: 'MenoWellness Basic + SupportPartner Basic with enhanced features',
     features: {
       menoWellnessFeatures: [
         '50 symptom entries/month',
-        '15 AI insights/month',
+        '75 AI insights/month (shared pool)',
         'Basic health tracking',
-        'Progress analytics'
+        'Progress analytics',
+        'Mood correlation insights'
       ],
       supportPartnerFeatures: [
-        '10 Mama Grace queries/day',
-        'Basic partner guidance',
-        'Mood tracking',
-        'Educational resources'
+        'Mama Grace AI guidance',
+        'Advanced communication tips',
+        'Educational content library',
+        'Partner mood tracking',
+        'Weekly check-ins'
       ],
       sharedFeatures: [
-        'Cross-app insights',
-        'Relationship analytics',
+        'Cross-app insights & analytics',
+        'Basic relationship health tracking',
         'Shared progress dashboard',
-        'Partner connection alerts'
+        'Partner connection alerts',
+        'Family support integration'
       ]
     }
   },
@@ -43,28 +46,28 @@ const BUNDLE_PRICING = {
     priceId: 'price_ultimate_couples_2999',
     amount: 2999, // $29.99 in cents
     name: 'Ultimate Couples',
-    description: 'Premium everything for both partners',
+    description: 'Unlimited access with advanced analytics for both partners',
     features: {
       menoWellnessFeatures: [
         'Unlimited symptom entries',
-        'Unlimited AI insights',
+        'Unlimited AI insights & queries',
         'Advanced health tracking',
-        'Provider integration',
-        'Custom meal planning'
+        'Complete education library',
+        'Advanced progress analytics'
       ],
       supportPartnerFeatures: [
         'Unlimited Mama Grace queries',
-        'Advanced AI coaching',
-        'Personalized sessions',
-        'Couples therapy tools',
-        'Crisis support'
+        'Complete education access',
+        'Advanced communication guides',
+        'Partner mood correlation',
+        'Weekly relationship insights'
       ],
       sharedFeatures: [
         'Advanced relationship analytics',
-        'Priority support',
-        'Live expert consultations',
-        'Custom intervention strategies',
-        'Family support integration'
+        'Complete cross-app data sharing',
+        'Enterprise analytics dashboard',
+        'Advanced correlation insights',
+        'Full family support integration'
       ]
     }
   }

@@ -175,7 +175,7 @@ export const FEATURE_ACCESS: Record<SubscriptionTier, FeatureAccess> = {
   },
 
   [SubscriptionTier.COUPLES_BUNDLE]: {
-    // Couples Bundle - $19.99 - MenoWellness Basic + SupportPartner Basic
+    // Couples Bundle - $19.99 - MenoWellness Basic + SupportPartner Basic with enhanced features
     basicEducation: true,
     dailyInsights: true,
     progressTracking: true,
@@ -205,30 +205,30 @@ export const FEATURE_ACCESS: Record<SubscriptionTier, FeatureAccess> = {
   },
 
   [SubscriptionTier.ULTIMATE_COUPLES]: {
-    // Ultimate Couples - $29.99 - Premium everything for both partners
+    // Ultimate Couples - $29.99 - Unlimited access with advanced analytics (no high-touch services)
     basicEducation: true,
     dailyInsights: true,
     progressTracking: true,
     basicCommunicationTips: true,
     advancedCommunicationGuides: true,
-    crisisIntervention: true,
+    crisisIntervention: false, // Removed - requires resources
     basicAIGuidance: true,
-    advancedAICoaching: true,
-    personalizedSessions: true,
+    advancedAICoaching: false, // Removed - requires human oversight
+    personalizedSessions: false, // Removed - requires human resources
     simpleMoodTracking: true,
     advancedMoodInsights: true,
     relationshipAnalytics: true,
     emailSupport: true,
-    priorityEmailSupport: true,
-    phoneVideoSupport: true,
-    dedicatedSpecialist: true,
-    crisisSupportLine: true,
+    priorityEmailSupport: false, // Removed - requires staffing
+    phoneVideoSupport: false, // Removed - requires staff
+    dedicatedSpecialist: false, // Removed - requires human resources
+    crisisSupportLine: false, // Removed - requires 24/7 staffing
     weeklyCheckins: true,
-    customSupportPlans: true,
-    couplesTherapyResources: true,
-    liveExpertConsultations: true,
+    customSupportPlans: false, // Removed - requires customization
+    couplesTherapyResources: false, // Removed - requires professional content
+    liveExpertConsultations: false, // Removed - requires experts
     familySupportIntegration: true,
-    customInterventionStrategies: true,
+    customInterventionStrategies: false, // Removed - requires customization
     basicCorrelationInsights: true,
     advancedCorrelationAnalytics: true,
     enterpriseAnalyticsDashboard: true,
@@ -340,7 +340,7 @@ export function getBundleFeatureAccess(tier: SubscriptionTier): SharedFeatureAcc
   switch (tier) {
     case SubscriptionTier.COUPLES_BUNDLE:
       return {
-        combinedAIQueries: 100, // 50 each app
+        combinedAIQueries: 75, // Shared pool between both apps
         crossAppInsights: true,
         relationshipAnalytics: true,
         prioritySupport: false,
@@ -351,8 +351,8 @@ export function getBundleFeatureAccess(tier: SubscriptionTier): SharedFeatureAcc
         combinedAIQueries: -1, // Unlimited
         crossAppInsights: true,
         relationshipAnalytics: true,
-        prioritySupport: true,
-        couplesTherapyTools: true,
+        prioritySupport: false, // Removed - requires human resources
+        couplesTherapyTools: false, // Removed - requires professional content
       };
     default:
       return {

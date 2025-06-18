@@ -97,13 +97,14 @@ export default function Landing() {
       originalPrice: 15.98,
       description: "MenoWellness + SupportPartner for both partners",
       features: [
-        "Everything in MenoWellness Basic",
-        "SupportPartner app for your partner",
+        "50 symptom entries & 75 AI queries/month",
+        "SupportPartner app with Mama Grace AI",
         "Cross-app insights & analytics",
         "Shared progress dashboard",
         "Partner connection alerts",
-        "Relationship health tracking",
-        "Couples communication tools"
+        "Basic relationship health tracking",
+        "Educational content library",
+        "Mood correlation basics"
       ],
       cta: "Start Bundle Trial",
       popular: true,
@@ -114,15 +115,15 @@ export default function Landing() {
       name: "Ultimate Couples",
       price: 29.99,
       originalPrice: 35.98,
-      description: "Premium everything for both partners",
+      description: "Complete unlimited access for both partners",
       features: [
         "Unlimited symptom tracking",
-        "Unlimited AI insights",
-        "Advanced partner coaching",
-        "Couples therapy tools",
-        "Priority support",
-        "Live expert consultations",
-        "Custom intervention strategies"
+        "Unlimited AI insights & queries",
+        "Advanced relationship analytics",
+        "Complete education library access",
+        "Full cross-app data sharing",
+        "Partner mood correlation insights",
+        "Advanced progress tracking"
       ],
       cta: "Start Premium Trial", 
       popular: false,

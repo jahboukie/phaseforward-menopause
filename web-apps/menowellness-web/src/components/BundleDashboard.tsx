@@ -291,19 +291,19 @@ export default function BundleDashboard({ userId }: BundleDashboardProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="flex items-center text-sm">
             <CheckCircleIcon className="h-4 w-4 text-green-500 mr-2" />
-            <span>Shared AI query pool</span>
+            <span>Shared AI query pool (75/month)</span>
           </div>
           <div className="flex items-center text-sm">
             <CheckCircleIcon className="h-4 w-4 text-green-500 mr-2" />
-            <span>Cross-app insights</span>
+            <span>Cross-app insights & analytics</span>
           </div>
           <div className="flex items-center text-sm">
             <CheckCircleIcon className="h-4 w-4 text-green-500 mr-2" />
-            <span>Relationship analytics</span>
+            <span>Relationship health tracking</span>
           </div>
           <div className="flex items-center text-sm">
             <CheckCircleIcon className="h-4 w-4 text-green-500 mr-2" />
-            <span>Partner progress sharing</span>
+            <span>Partner mood correlation</span>
           </div>
         </div>
       </div>

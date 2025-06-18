@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS bundle_subscriptions (
   
   -- Feature Usage Tracking
   shared_ai_queries_used INTEGER DEFAULT 0,
-  shared_ai_queries_limit INTEGER DEFAULT 100,
+  shared_ai_queries_limit INTEGER DEFAULT 75, -- Updated default for couples bundle
   
   -- Bundle-specific Features
   cross_app_insights_enabled BOOLEAN DEFAULT true,

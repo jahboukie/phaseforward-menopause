@@ -15,7 +15,7 @@ export class BundleRateLimiter {
   constructor() {
     this.rateLimits = {
       couples_bundle: {
-        aiQueriesPerMonth: 100,
+        aiQueriesPerMonth: 75, // Shared pool between both apps
         symptomEntriesPerMonth: 50,
         insightGenerationsPerMonth: 25
       },

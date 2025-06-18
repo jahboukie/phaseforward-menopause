@@ -34,11 +34,12 @@ export default function BundleInviteModal({
       price: '$19.99/month',
       savings: 'Better value than separate apps',
       features: [
-        'MenoWellness symptom tracking',
-        'SupportPartner coaching for your partner',
-        'Shared progress insights',
-        'Relationship analytics',
-        'Partner alert system'
+        'MenoWellness symptom tracking (50 entries)',
+        'SupportPartner with Mama Grace AI',
+        '75 shared AI queries per month',
+        'Cross-app insights & analytics',
+        'Partner connection alerts',
+        'Basic relationship health tracking'
       ]
     },
     ultimate_couples: {
@@ -46,11 +47,12 @@ export default function BundleInviteModal({
       price: '$29.99/month',
       savings: 'Save $6/month vs separate',
       features: [
-        'Unlimited everything for both apps',
-        'Advanced couples therapy tools',
-        'Priority support',
-        'Live expert consultations',
-        'Custom intervention strategies'
+        'Unlimited symptom tracking & AI queries',
+        'Complete education library access',
+        'Advanced relationship analytics',
+        'Full cross-app data sharing',
+        'Partner mood correlation insights',
+        'Enterprise analytics dashboard'
       ]
     }
   }
